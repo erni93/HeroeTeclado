@@ -1,6 +1,6 @@
 <?php
 
-    require("./heroeteclado/inc/funciones.inc.php");
+    require("../inc/funciones.inc.php");
 
 
     iniciarSesion();
@@ -47,8 +47,15 @@
             
 		</section>
 		<footer>
-		    <a href="index.php">Inicio</a>
-			<p>Práctica 7 en PHP. David Parro Rubio</p>
+            <h2>Página desarrollada por los estudiantes de DAW:</h2>
+		    <a href="../index.php">Inicio</a>
+			<ul>
+                <li>David Parro</li>
+                <li>Ernesto del Valle</li>
+                <li>Jonatan Tomillo</li>
+                <li>Renzo Roca</li>
+                <li>Pablo Ruiz</li>
+            </ul>
 		</footer>
 	</body>
 </html>
