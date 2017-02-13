@@ -11,4 +11,33 @@
  * @author    	Renzo Roca
  * 
  */ 
- 
+ @font-face {
+    font-family: 'heroe';
+    src: url("../fonts/heroes.ttf");
+}
+ body>header{
+ 	font-family: 'heroe',sans-serif;
+ 	font-size:250%;
+ 	letter-spacing: 0.2ex;
+ }
+ .menu-principal{
+ 	padding: 0;
+ 	list-style: none;
+ 	/*position: fixed;*/
+ 	/*background-color: black;*/
+ }
+ .menu-principal>li{
+ 	text-align: center;
+ 	/*color:white;*/
+ }
+ .menu-principal>li>a{
+ 	/*color:white;*/
+ 	color:inherit;
+ 	text-decoration: none;
+ }
+.canciones:hover{background-color: purple;color:white;}
+.juego:hover{background-color: orange;color:white;}
+.novedades:hover{background-color: green;color:white;}
+.puntuaciones:hover{background-color: red;color:white;}
+.menu-principal>.cuenta>a{color:inherit;}
+.cuenta:hover{background-color: black;color:white;}

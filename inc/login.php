@@ -48,7 +48,7 @@
 		</section>
 		<footer>
             <h2>Página desarrollada por los estudiantes de DAW:</h2>
-		    <a href="../index.php">Inicio</a>
+		    <a href="../index.html">Inicio</a>
 			<ul>
                 <li>David Parro</li>
                 <li>Ernesto del Valle</li>
