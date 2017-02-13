@@ -1,41 +1,57 @@
+<?php
+
+    require("./inc/funciones.inc.php");
+    require("./clases/Connection.php");
+    require("./clases/Usuario.php");
+    require("./clases/Peli.php");
+    require("./clases/Conexion.php");
+
+    iniciarSesion();
+    if(isset($_SESSION['mi_uid'])){
+        header("Location: cuenta.php");
+    }
+    crearNombreIdSesion();
+    
+    
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>¡Regístrate!</title>
-		<link rel="stylesheet" href="./style/main.css" type="text/css" />
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<script src="js/bootstrap.min.js"></script>
-		<script type="js/jquery-3.1.1.slim.min.js"></script>
+		<meta charset="utf-8">
+		<title>Cartelera</title>
+		<link rel="stylesheet" type="text/css" href="./css/stylelogin.css">
+		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+		<?php
+
+		?>
 	</head>
 	<body>
-		<header>
-			<nav>
-				<ul>
-					<li><a href="#anclaPpal">Juego</a></li>
-					<li><a href="#anclaNovedad">Novedades</a></li>
-					<li><a href="#anclaPunt">Puntuaciones</a></li>
-					<li><a href="#anclaCancion">Canciones</a></li>
-					<li><a href="/inc/login.php">Cuenta</a></li>
-				</ul>
-			</nav>
+		<header>		
+			<h1>Acceso a mi cuenta</h1>
 		</header>
-		<div id="contenedor">
-			<form>
-				<fieldset>
-					
-				</fieldset>
-			</form>
-		</div>
+		<section>
+           <div id="acceso">
+                <div id="datos">
+                   <form action="cuenta.php" method="post">
+                        <input type="text" placeholder="Usuario" name="user" id="user"><br />
+                        <input type="password" placeholder="Contraseña" name="pass" id="pass"><br />
+                        <input type="submit" value="Acceder" id="acceder" name="acceder">
+                        <a href="recordar_pass.php">¿Recordar contraseña?</a>
+                   </form>
+                </div>
+                <div id="registrar">
+                    <p>¿Aún no formas parte de nuestra red?</p>
+                    <p class="carac">Comparte tu opinion</p>
+                    <p class="carac">Valora las películas</p>
+                    <p class="carac">Reserva entradas</p>
+                    <a href="registro.php"><button>Registrar</button></a>
+                </div>
+           </div>
+            
+		</section>
 		<footer>
-			<h2>Página desarrollada por los estudiantes de DAW:</h2>
-			<ul>
-				<li>David Parro</li>
-				<li>Ernesto del Valle</li>
-				<li>Jonatan Tomillo</li>
-				<li>Renzo Roca</li>
-				<li>Pablo Ruiz</li>
-			</ul>
+		    <a href="index.php">Inicio</a>
+			<p>Práctica 7 en PHP. David Parro Rubio</p>
 		</footer>
 	</body>
 </html>
