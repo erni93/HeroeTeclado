@@ -1,10 +1,7 @@
 <?php
 
-    require("./inc/funciones.inc.php");
-    require("./clases/Connection.php");
-    require("./clases/Usuario.php");
-    require("./clases/Peli.php");
-    require("./clases/Conexion.php");
+    require("./heroeteclado/inc/funciones.inc.php");
+
 
     iniciarSesion();
     if(isset($_SESSION['mi_uid'])){
