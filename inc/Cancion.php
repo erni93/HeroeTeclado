@@ -12,13 +12,18 @@ class Cancion{
 	private var $duracion;
 
 	//CONSTRUCTOR
-
+	public function __construct() {
+     
+    }
 	//METODOS
 
 
 	//ESTATICOS
 	public static function listarCanciones(){
+		
+		$sql="SELECT * FROM canciones";
 
+		
 	}
 }
 ?>
