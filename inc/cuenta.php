@@ -13,52 +13,58 @@
 		<link rel="stylesheet" type="text/css" href="./css/stylelogin.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
-            
-            $login=false;
+            $mensaje="";
+            $emailBBDD="";
+            $nickBBDD="";
+            $login=true;
             if(isset($_SESSION['id'])){
                 $usuario=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
+                echo "Con sesion";
             }else{
                 $usuario=$_POST['user'];
                 $pass=$_POST['pass'];
+                echo "Sin secion";
             }
-            /*$mensaje="";
-            $db = Conexion::dameInstancia();
-            $mysqli = $db->dameConexion();
-            $sql_query = "SELECT pass,email,nick FROM usuarios WHERE nick = ?;";
-            $stmt = $mysqli->stmt_init();
-            if ( $stmt->prepare($sql_query) ) {
-                @$stmt->bind_param('s', $usuario);
+            $db = new SQLite3('../bbdd/heroeteclado.sqlite');
 
-                if ( $stmt->execute() ) {
-                    $stmt->store_result();	
-                    	
-                    $stmt->bind_result($passBBDD,$emailBBDD,$nickBBDD);		
-                    $stmt->fetch();
+            //$results = $db->query('SELECT * FROM usuarios WHERE correo = ? AND password=?;'); 
+            /*$db = Conexion::dameInstancia();
+            $db2 = Conexion::conexion();
+            echo $db2."db";*/
+            $password_md5 = md5($pass);
+            $sql_query = "SELECT * FROM usuarios WHERE correo = ? AND password=?;";
+            /*echo "Prepare;".$db->prepare($sql_query);*/
+            if ( $reultado=$db->prepare($sql_query) ) {
+                $reultado->bindValue(1,$usuario);
+                $reultado->bindValue(2,$password_md5);
+                //echo  "Hola".$db->execute() ;
+                if ( $filas=$reultado->execute() ) {
 
-                        if($passBBDD!=$pass){
+                   $prueba=$filas->fetchArray();
+                   echo "<br />".$prueba['nick']."<br />";
+                        if(count($prueba)==0){
                             $mensaje="Usuario/contraseña incorrectos";
                             $login=false;
                         }else{
                             $mensaje="Usuario y contraseña correctos";
+                            $emailBBDD=$prueba['correo'];
+                            $nickBBDD=$prueba['nick'];
                             $login=true;
                           
                         }
-                    if ($stmt->free_result()){
-                        
-                    }
                     
                 } else {
-                    echo "<p class='error'>", "** Fallo en la ejecución de la consulta !!<br><br>" .$stmt->errno. " - " .$stmt->error. " **</p>";	
+                   // echo "<p class='error'>", "** Fallo en la ejecución de la consulta !!<br><br>" .$db->errno. " - " .$db->error. " **</p>";	
                 }
             } else {
-                echo "<p class='error'>", "* Fallo en la preparación de la consulta !!<br><br>en stmt: " .$stmt->errno. " y en mysqli: ".$mysqli->error." *</p>";
+                //echo "<p class='error'>", "* Fallo en la preparación de la consulta !!<br><br>en stmt: " .$db->errno. " y en mysqli: ".$db->error." *</p>";
                
-            }*/
+            }
 
           
         
-            
+            echo $mensaje;
 		?>
 	</head>
 	<body>
@@ -75,7 +81,7 @@
                <?php
                     if($login){
                         $usuario= new Usuario;
-                        $usuario->login_usuario($emailBBDD,$password);
+                        $usuario->login_usuario($emailBBDD,$pass);
                         echo '<ul class="menu-user"><li id="mis-datos"><a href="datos.php">Mis Datos</a></li><li id="mis-favoritas"><a href="favoritas.php">Mis Favortias</a></li><li id="mis-valoraciones"><a href="valoracion.php">Valoración Pelis</a></li></ul>';
                     }
                //header("Location: datos.php");
