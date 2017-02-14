@@ -4,7 +4,7 @@
 
 
     iniciarSesion();
-    if(isset($_SESSION['mi_uid'])){
+    if(isset($_SESSION['id'])){
         header("Location: cuenta.php");
     }
     crearNombreIdSesion();
@@ -48,7 +48,7 @@
 		</section>
 		<footer>
             <h2>Página desarrollada por los estudiantes de DAW:</h2>
-		    <a href="../index.html">Inicio</a>
+		    <a href="../index.php">Inicio</a>
 			<ul>
                 <li>David Parro</li>
                 <li>Ernesto del Valle</li>

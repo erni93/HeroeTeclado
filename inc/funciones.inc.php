@@ -12,4 +12,8 @@ function crearNombreIdSesion() {
 	$_SESSION['nombreId'] = $sn."=". $si;
 }
 
+function iniciarVariables(){
+	
+}
+
 ?>

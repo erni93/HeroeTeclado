@@ -1,12 +1,7 @@
 <?php
-
     require("./inc/funciones.inc.php");
-
-
     iniciarSesion();
-    crearNombreIdSesion();
-    
-    
+    crearNombreIdSesion();  
 ?>
 <!DOCTYPE html>
 <html>
