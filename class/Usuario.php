@@ -46,6 +46,28 @@ class Usuario {
         return $success;
     }
 
+    public function verPuntuacionesTotales(){ //pendiente de prueba
+    	$sql="select * from usuarios,puntuaciones,canciones where (usuario.id = puntuaciones.id_usuario,canciones.id=puntuaciones.id_cancion) AND (puntuaciones.id_usuario = ?)";
+    	$consulta=$this->db->prepare($sql);
+    	$consulta->bindValue(1,$_SESSION['id']);
+    	$consulta->execute();
+
+    	$puntos=array();
+    	$count=0;
+
+    	while($fila=$consulta->fetch()){
+    		$titulo=$fila['titulo'];
+    		$nick=$fila['nick'];
+    		$puntuacion=$fila['puntaucion'];
+    		$provisional=array($titulo,$nick,$puntuacion);
+    		$puntos[$count]=$provisional; //$puntos es un array de dos dimensiones que contiene para cada indice, un array con los datos de cada cancion para ese usuario.
+    		$count++;
+    	}
+
+    	return $puntos;
+
+    }
+
     public function __clone() {
        return "La clonacion de este objeto no esta permitida";
     }
