@@ -20,22 +20,48 @@ class Cancion{
         		$consulta= $this->db->query($sql);
 
 					if ($this->instancia->numRows($consulta) == 1) {
-                $fila = $consulta->fetchArray();
-				        $id=$fila["id"];
-                $titulo=$fila["titulo"];
-                $grupo=$fila["grupo"];
-                $duracion=$fila["duracion"];
-                $ruta=$fila["ruta"];
-                return array($id,$titulo, $grupo, $duracion, $ruta);
+                $fila = $consulta->fetchArray(SQLITE3_ASSOC);
+				        return $fila;
 
             } else {
                 return "No existe la canción";
             }
     }
-
-		public function addCancion(){
-			$sql="INSERT INTO canciones VALUES (NULL,?,?,?,?)";
-				"$titulo,$grupo,$ruta,$duracion)";
+		public function verCanciones() {
+	            $sql = "SELECT * from canciones";
+	        		$consulta= $this->db->query($sql);
+							$canciones=array();
+	            while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+					    	array_push($canciones,$fila);
+							}
+							return $canciones;
+	    }
+		public function addCancion($titulo,$grupo,$ruta,$duracion){
+				$sql="INSERT INTO canciones VALUES (NULL,'".$titulo."','".$grupo."','".$ruta."','".$duracion."')";
+				if($this->db->query($sql)){
+					return 1;
+				}else{
+					return 0;
+				}
 		}
+
+		public function removeCancion($id){
+			$sql="DELETE FROM canciones WHERE id=".$id;
+			if($this->db->query($sql)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
+		public function modificarCancion($campo,$nValor,$id){
+			$sql="UPDATE canciones SET ".$campo."='".$nvalor."' WHERE id=".$id;
+			if($this->db->query($sql)){
+				return 1;
+			}else{
+				return 0;
+			}
+		}
+
 }
 ?>
