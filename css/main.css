@@ -24,16 +24,10 @@
  	padding: 0;
  	margin: 0;
  	list-style: none;
-<<<<<<< HEAD
  	position: fixed;
  	top:0;
  	width:100%;
  	background-color: white;
-=======
- 	/*position: fixed;*/
- 	/*background-color: black;*/
- 	/*Comentario*/
->>>>>>> origin/master
  }
  .menu-principal>li{
  	text-align: center;
