@@ -5,29 +5,31 @@
 		<title>Keyboard Hero</title>
 		<!--Normalize Css -->
 		<link rel="stylesheet" href="./css/normalize.css" 	type="text/css"	/>
-		<!--Bootstrap -->
+		<!--Bootstrap Css-->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!--Main Css-->
 		<link rel="stylesheet" href="./css/main.css" 		type="text/css" />
-		<script src="js/bootstrap.min.js"></script>
 		<!--JQuery-->
-		<script type="js/jquery-3.1.1.slim.min.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<!--Bootstrap JQuery-->
+		<script src="js/bootstrap.min.js"></script>
+		<!--Menu
+		<script src="js/menu.js"></script>-->
 	</head>
 	<body>
 		<header>
 			<nav>
 				<ul class="container-fluid menu-principal">
-					<li class="col-md-2 juego"><a href="#anclaPpal">Juego</a></li>
-					<li class="col-md-2 novedades"><a href="#anclaNovedad">Novedades</a></li>
-					<li class="col-md-2 puntuaciones"><a href="#anclaPunt">Puntuaciones</a></li>
-					<li class="col-md-2 canciones"><a href="#anclaCancion">Canciones</a></li>
-					<li class="col-md-2 col-md-offset-2 cuenta"><a href="./heroeteclado/inc/login.php">Cuenta</a></li>
+					<li class="juego col-md-2 "><a href="#" id="uno" class="link-1 ">Juego</a></li>
+					<li class="novedades col-md-2"><a href="#novedades" id="dos" class=" link-2">Novedades</a></li>
+					<li class="puntuaciones col-md-2  "><a href="#puntuaciones" id="tres" class="link-3">Puntuaciones</a></li>
+					<li class="canciones col-md-2  "><a href="#canciones" id="cuatro" class="link-4">Canciones</a></li>
+					<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">Cuenta</a></li>
 				</ul>
 			</nav>
 		</header>
 		<div id="contenedor">
 			<section id="principal">
-				<h1  id="anclaPpal"></h1>
 				<div id="cancionesP">
 					
 				</div>
@@ -39,13 +41,10 @@
 				</div>
 			</section>
 			<section id="novedades">
-				<h1  id="anclaNovedad"></h1>
 			</section>
 			<section id="puntuaciones">
-				<h1  id="anclaPunt" ></h1>
 			</section>
 			<section id="canciones">
-				<h1  id="anclaCancion"></h1>
 			</section>
 		</div>
 		<footer>

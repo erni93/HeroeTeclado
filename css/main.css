@@ -20,20 +20,25 @@
  	font-size:250%;
  	letter-spacing: 0.2ex;
  }
- .menu-principal{
+ ul.menu-principal{
  	padding: 0;
+ 	margin: 0;
  	list-style: none;
- 	/*position: fixed;*/
- 	/*background-color: black;*/
+ 	position: fixed;
+ 	top:0;
+ 	width:100%;
+ 	background-color: white;
  }
  .menu-principal>li{
  	text-align: center;
- 	/*color:white;*/
+ 	/*background-color:white;*/
  }
  .menu-principal>li>a{
  	/*color:white;*/
  	color:inherit;
  	text-decoration: none;
+ 	display: block;
+ 	/*width: 170px;*/
  }
 .canciones:hover{background-color: purple;color:white;}
 .juego:hover{background-color: orange;color:white;}
@@ -41,3 +46,35 @@
 .puntuaciones:hover{background-color: red;color:white;}
 .menu-principal>.cuenta>a{color:inherit;}
 .cuenta:hover{background-color: black;color:white;}
+
+/* Pruebas colores de fondo */
+#principal{
+	background-color: orange;
+	height: 800px;
+}
+#novedades{
+	background-color: green;
+	height: 800px;
+}
+#puntuaciones{
+	background-color: red;
+	height: 800px;
+}
+#canciones{
+	background-color: purple;
+	height: 800px;
+}
+h1{
+	margin: 0;
+}
+body{margin: 0;padding: 0;}
+#contenedor{
+	margin-top: 50px;
+}
+.cuatro-active{background-color: purple;color:white;}
+.uno-active{background-color: orange;color:white;}
+.dos-active{background-color: green;color:white;}
+.tres-active{background-color: red;color:white;}
+.menu-principal>.cuenta>a{color:inherit;}
+.cinco-active{background-color: black;color:white;}
+
