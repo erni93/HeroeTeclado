@@ -1,29 +1,41 @@
 <?php
 //clases para canciones
-require_once("conexion.php");
+require_once("../class/Conexion.php");
 class Cancion{
 	//ATRIBUTOS
-	private var $id;
-	private var $titulo;
-	private var $grupo;
-	private var $caratula;
-	private var $cancion;
-	private var $notas;
-	private var $duracion;
-
-	//CONSTRUCTOR
+	private $instancia;
+	private $db;
+ 	//CONSTRUCTOR
 	public function __construct() {
-     
-    }
-	//METODOS
-
-
-	//ESTATICOS
-	public static function listarCanciones(){
-		
-		$sql="SELECT * FROM canciones";
-
-		
+			$this->instancia = Conexion::dameInstancia();
+			$this->db=$this->instancia->conexion();
 	}
+	//METODOS
+	public function get_db() {
+			return $this->db;
+	}
+
+	public function verCancion($id) {
+            $sql = "SELECT * from canciones WHERE id=".$id;
+        		$consulta= $this->db->query($sql);
+
+					if ($this->instancia->numRows($consulta) == 1) {
+                $fila = $consulta->fetchArray();
+				        $id=$fila["id"];
+                $titulo=$fila["titulo"];
+                $grupo=$fila["grupo"];
+                $duracion=$fila["duracion"];
+                $ruta=$fila["ruta"];
+                return array($id,$titulo, $grupo, $duracion, $ruta);
+
+            } else {
+                return "No existe la canción";
+            }
+    }
+
+		public function addCancion(){
+			$sql="INSERT INTO canciones VALUES (NULL,?,?,?,?)";
+				"$titulo,$grupo,$ruta,$duracion)";
+		}
 }
 ?>
