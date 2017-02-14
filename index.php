@@ -1,3 +1,13 @@
+<?php
+
+    require("./inc/funciones.inc.php");
+
+
+    iniciarSesion();
+    crearNombreIdSesion();
+    
+    
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +34,14 @@
 					<li class="novedades col-md-2"><a href="#novedades" id="dos" class=" link-2">Novedades</a></li>
 					<li class="puntuaciones col-md-2  "><a href="#puntuaciones" id="tres" class="link-3">Puntuaciones</a></li>
 					<li class="canciones col-md-2  "><a href="#canciones" id="cuatro" class="link-4">Canciones</a></li>
-					<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">Cuenta</a></li>
+					<?php
+					if(isset($_SESSION['mi_uid'])){
+        				echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">'.$_SESSION['usuario'].'</a></li>';
+    				}else{
+    					echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">Cuenta</a></li>';
+    				}
+    				?>
+					
 				</ul>
 			</nav>
 		</header>
