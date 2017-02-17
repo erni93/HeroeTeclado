@@ -18,24 +18,27 @@
             $nickBBDD="";
             $login=true;
             if(isset($_SESSION['id'])){
-                $usuario=$_SESSION['correo'];
+                $emailBBDD=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
+				$rango=$_SESSION['rango'];
                 echo "Con sesion";
             }else{
+                header("Location: login.php");
                 $usuario=$_POST['user'];
                 $pass=$_POST['pass'];
-                echo "Sin secion";
+				$rango=-1;
+                echo "Sin sesion";
             }
-            $db = new SQLite3('../bbdd/heroeteclado.sqlite');
+            /*$db = new SQLite3('../bbdd/heroeteclado.sqlite');
 
             //$results = $db->query('SELECT * FROM usuarios WHERE correo = ? AND password=?;'); 
             /*$db = Conexion::dameInstancia();
             $db2 = Conexion::conexion();
             echo $db2."db";*/
-            $password_md5 = md5($pass);
-            $sql_query = "SELECT * FROM usuarios WHERE correo = ? AND password=?;";
+            //$password_md5 = md5($pass);
+            //$sql_query = "SELECT * FROM usuarios WHERE correo = ? AND password=?;";
             /*echo "Prepare;".$db->prepare($sql_query);*/
-            if ( $reultado=$db->prepare($sql_query) ) {
+           /* if ( $reultado=$db->prepare($sql_query) ) {
                 $reultado->bindValue(1,$usuario);
                 $reultado->bindValue(2,$password_md5);
                 //echo  "Hola".$db->execute() ;
@@ -64,7 +67,7 @@
 
           
         
-            echo $mensaje;
+            echo $mensaje;*/
 		?>
 	</head>
 	<body>
@@ -73,17 +76,25 @@
                 <?php if($login)echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
 			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
 			    <p><?php if($login)echo $nickBBDD;?></p>
+				<p><?php if($login)echo $rango;?></p>
+                <?php 
+                    echo $nickBBDD." ".$emailBBDD." Bienvenido";
+                ?>
 			    
 			</h1>
 		</header>
 		<section>
            <div class="datosusuario">
                <?php
-                    if($login){
+                   /* if($login){
                         $usuario= new Usuario;
-                        $usuario->login_usuario($emailBBDD,$pass);
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="datos.php">Mis Datos</a></li><li id="mis-favoritas"><a href="favoritas.php">Mis Favortias</a></li><li id="mis-valoraciones"><a href="valoracion.php">Valoración Pelis</a></li></ul>';
-                    }
+                        $usuario->login_usuario($emailBBDD,$pass);*/
+                        echo '<ul class="menu-user"><li id="mis-datos"><a href="datos.php">Mis Datos</a></li><li id="mis-favoritas"><a href="favoritas.php">Mis Favortias</a></li><li id="mis-valoraciones"><a href="valoracion.php">Valoración Pelis</a></li>';
+                        if($_SESSION['rango']==0){
+                            echo '<li id="administrar"><a href="../admin/admin.php">Administrar</a></li>';
+                        }
+                        echo '</ul>';
+                    //}
                //header("Location: datos.php");
                ?>
            </div>

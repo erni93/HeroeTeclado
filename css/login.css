@@ -1,0 +1,30 @@
+/** 
+ * Heroes del Teclado
+ * 
+ * Archivo CSS LOGIN Y REGISTRO  
+ * 
+ * @project    	2ºDAW, Practica conjunta
+ * @author    	David Parro
+ * @author    	Ernesto del Valle
+ * @author    	Jonatan Tomillo
+ * @author    	Pablo Ruiz
+ * @author    	Renzo Roca
+ * 
+ */ 
+body{
+ 	min-width: 350px;
+ 	text-align: center;
+}
+footer ul li{
+	float:left;
+	width:20%;
+}
+footer ul{
+	list-style: none;
+	width: 100%;
+	/*text-align: center;*/
+	padding-left: 0;
+}
+input{
+	margin-bottom: 1%;
+}

@@ -4,7 +4,8 @@ class Usuario {
     private $db;
 	
     public function __construct() {
-        $this->db = Conexion::dameInstancia();
+        $this->instancia = Conexion::dameInstancia();
+        $this->db=$this->instancia->conexion();
     }
 
     public function insertar_usuario($nick,$password,$correo,$avatar){ //pendiente de prueba
@@ -27,14 +28,14 @@ class Usuario {
     	$sql="select * from usuarios where correo = ? and password = ?";
     	$consulta = $this->db->prepare($sql);
 
-    	$password_md5 = md5($password);
         $consulta->bindValue(1, $email);
-        $consulta->bindValue(2, $password_md5);
-        $consulta->execute();
+        $consulta->bindValue(2, $password);
+        $resultado=$consulta->execute();
 
         //Si existe en la BBDD
-        if($consulta->numrows()==1){
-        	$fila = $consulta->fetch();
+        if($this->instancia->numRows($resultado)==1){
+            echo "hola";
+        	$fila = $resultado->fetchArray();
             $_SESSION['id'] = $fila['id'];
             $_SESSION['correo'] = $fila['correo'];
             $_SESSION['nick'] = $fila['nick'];
