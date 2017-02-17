@@ -33,7 +33,7 @@
 					<li class="canciones col-md-2  "><a href="#canciones" id="cuatro" class="link-4">Canciones</a></li>
 					<?php
 					if(isset($_SESSION['id'])){
-        				echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">'.$_SESSION['usuario'].'</a></li>';
+        				echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">'.$_SESSION['nick'].'</a></li>';
     				}else{
     					echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">Cuenta</a></li>';
     				}
