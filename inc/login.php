@@ -1,7 +1,8 @@
 <?php
 
     require("../inc/funciones.inc.php");
-
+    require_once("../class/Conexion.php");
+    require_once("../class/Usuario.php");
 
     iniciarSesion();
     if(isset($_SESSION['id'])){
@@ -16,10 +17,51 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Cartelera</title>
-		<link rel="stylesheet" type="text/css" href="./css/stylelogin.css">
+		<!--<link rel="stylesheet" type="text/css" href="../css/stylelogin.css">-->
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+        <script src="../js/jquery-3.1.1.min.js"></script>
+        <script>
+            function validar(){
+                valido=true;
+                $("#user+p").remove();
+                $("#pass+p").remove();
+                valor = $("#user").val();
+                valor2 = $("#pass").val();
+                if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {    
+                    $("#user").after("<p>El campo de usuario no puede estar vacio</p>");
+                    valido=false;
+                }
+                if( valor2 == null || valor2.length == 0 || /^\s+$/.test(valor2) ) {          
+                    $("#pass").after("<p>El campo de contraseña no puede estar vacio</p>");
+                    valido=false;
+                }
+                return valido;
+            }
+        </script>
 		<?php
-
+            if(isset($_POST['acceder'])){
+                $nick=$_POST['user'];
+                $pass=md5($_POST['pass']);
+                $instancia=Conexion::dameInstancia();
+                $db=$instancia->conexion();
+                $sql="SELECT * from usuarios WHERE nick='".$nick."'";
+                $consulta=$db->query($sql);
+                if($instancia->numRows($consulta) == 1){
+                    $fila = $consulta->fetchArray(SQLITE3_ASSOC);
+                    if($pass==$fila['password']){
+                        $user = new Usuario;
+                        if($user->login_usuario($fila['correo'],$fila['password'])){
+                            header("Location: cuenta.php");     
+                        }else{
+                            $mensaje="Ha ocurrido un error al iniciar sesion, por favor intentelo mas tarde en unos segundos";
+                        }
+                    }else{
+                        $mensaje="Contraseña incorrecta";
+                    }
+                }else{
+                    $mensaje="No existe el usuario";
+                }
+            }
 		?>
 	</head>
 	<body>
@@ -29,12 +71,13 @@
 		<section>
            <div id="acceso">
                 <div id="datos">
-                   <form action="cuenta.php" method="post">
-                        <input type="text" placeholder="Usuario" name="user" id="user"><br />
+                   <form action="#" method="post" onsubmit="return validar()">
+                        <input type="text" placeholder="Usuario" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
                         <input type="password" placeholder="Contraseña" name="pass" id="pass"><br />
                         <input type="submit" value="Acceder" id="acceder" name="acceder">
                         <a href="recordar_pass.php">¿Recordar contraseña?</a>
                    </form>
+                <p><?php if(isset($_POST['acceder'])&&isset($mensaje)) echo $mensaje ?></p>
                 </div>
                 <div id="registrar">
                     <p>¿Aún no formas parte de nuestra red?</p>

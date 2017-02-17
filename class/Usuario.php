@@ -16,24 +16,21 @@ class Usuario {
         $sentencia->bindValue(2, $password_md5);
         $sentencia->bindValue(3, $correo);
         $sentencia->bindValue(4, $avatar);
-        if($sentencia->execute()){
-            return true;
-        }else{
-            return false;
-        }
+       
+        $sentencia->execute();
         
     }
 
-    public function login_usuario($email,$password){ //pendiente de prueba
+    public function login_usuario($email,$password){ 
 
     	$success=false;
 
     	$sql="select * from usuarios where correo = ? and password = ?";
     	$consulta = $this->db->prepare($sql);
 
-    	$password_md5 = md5($password);
         $consulta->bindValue(1, $email);
-        $consulta->bindValue(2, $password_md5);
+        $consulta->bindValue(2, $password);
+
         $resultado=$consulta->execute();
 
         //Si existe en la BBDD
