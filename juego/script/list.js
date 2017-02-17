@@ -2,6 +2,7 @@ ENGINE.List = function(args) {
 	var datos = $.ajax({
         type: "GET",
         url: "obtenernotas.php",
+        data: {action:"notas"},
         cache: false,
         async: false
     }).responseText;
