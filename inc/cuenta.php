@@ -20,11 +20,13 @@
             if(isset($_SESSION['id'])){
                 $usuario=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
+				$rango=$_SESSION['rango'];
                 echo "Con sesion";
             }else{
                 $usuario=$_POST['user'];
                 $pass=$_POST['pass'];
-                echo "Sin secion";
+				$rango=-1;
+                echo "Sin sesion";
             }
             $db = new SQLite3('../bbdd/heroeteclado.sqlite');
 
@@ -73,6 +75,7 @@
                 <?php if($login)echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
 			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
 			    <p><?php if($login)echo $nickBBDD;?></p>
+				<p><?php if($login)echo $rango;?></p>
 			    
 			</h1>
 		</header>
