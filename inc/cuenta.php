@@ -77,10 +77,6 @@
 			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
 			    <p><?php if($login)echo $nickBBDD;?></p>
 				<p><?php if($login)echo $rango;?></p>
-                <?php 
-                    echo $nickBBDD." ".$emailBBDD." Bienvenido";
-                ?>
-			    
 			</h1>
 		</header>
 		<section>

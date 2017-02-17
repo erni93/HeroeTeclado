@@ -20,12 +20,14 @@
 		<script src="js/bootstrap.min.js"></script>
 		<!--Menu
 		<script src="js/menu.js"></script>-->
+		<!--anclas -->
+		<script src="js/anclas.js"></script>
 	</head>
 	<body>
 		<header>
 			<nav>
 				<ul class="container-fluid menu-principal">
-					<li class="juego col-md-2 "><a href="#" id="uno" class="link-1 ">Juego</a></li>
+					<li class="juego col-md-2 "><a href="#principal" id="uno" class="link-1 ">Juego</a></li>
 					<li class="novedades col-md-2"><a href="#novedades" id="dos" class=" link-2">Novedades</a></li>
 					<li class="puntuaciones col-md-2  "><a href="#puntuaciones" id="tres" class="link-3">Puntuaciones</a></li>
 					<li class="canciones col-md-2  "><a href="#canciones" id="cuatro" class="link-4">Canciones</a></li>
