@@ -1,7 +1,6 @@
  $(function(){
 
      $("a[href*=\\#]").click(function() {
-      console.log("funciona");
      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
          && location.hostname == this.hostname) {
 
