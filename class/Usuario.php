@@ -21,7 +21,7 @@ class Usuario {
         
     }
 
-    public function login_usuario($email,$password){ //pendiente de prueba
+    public function login_usuario($email,$password){ 
 
     	$success=false;
 
@@ -34,7 +34,6 @@ class Usuario {
 
         //Si existe en la BBDD
         if($this->instancia->numRows($resultado)==1){
-            echo "hola";
         	$fila = $resultado->fetchArray();
             $_SESSION['id'] = $fila['id'];
             $_SESSION['correo'] = $fila['correo'];

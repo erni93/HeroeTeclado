@@ -16,6 +16,7 @@
 		<title>Inicio de Sesión</title>
         <link rel="stylesheet" type="text/css" href="../css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
+
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
         <script src="../js/jquery-3.1.1.min.js"></script>
         <script>
@@ -70,8 +71,10 @@
            <div id="acceso">
                 <div id="datos">
                    <form action="#" method="post" onsubmit="return validar()">
+
                         <label for="user">Usuario: </label><input type="text" placeholder="Usuario" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
                         <label for="pass">Contraseña: </label><input type="password" placeholder="Contraseña" name="pass" id="pass"><br />
+
                         <input type="submit" value="Acceder" id="acceder" name="acceder">
                         <a href="recordar_pass.php">¿Recordar contraseña?</a>
                    </form>
