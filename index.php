@@ -32,7 +32,7 @@
 					<li class="puntuaciones col-md-2  "><a href="#puntuaciones" id="tres" class="link-3">Puntuaciones</a></li>
 					<li class="canciones col-md-2  "><a href="#canciones" id="cuatro" class="link-4">Canciones</a></li>
 					<?php
-					if(isset($_SESSION['mi_uid'])){
+					if(isset($_SESSION['id'])){
         				echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">'.$_SESSION['usuario'].'</a></li>';
     				}else{
     					echo '<li class="col-md-2 col-md-offset-2 cuenta"><a href="./inc/login.php " id="cinco">Cuenta</a></li>';
