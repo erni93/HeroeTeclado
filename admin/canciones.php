@@ -9,15 +9,58 @@
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<!--Main Css-->
 	<link rel="stylesheet" href="../css/admin.css" 		type="text/css" />
+	<!--fontawesome-->
+	<script src="https://use.fontawesome.com/0f800d37bb.js"></script>
 	<!--JQuery-->
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<!--Bootstrap JQuery-->
 	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		  $( function() {
+				buscar();
+				function buscar(){
+					busqueda=$("#buscar").val();
+					//if(busqueda=""){
+						//envio="o=t";
+					//}else{
+						envio="o=b&nombre="+busqueda;
+					//}
+					$("#canciones tbody").find("tr").remove();
+					$.post("./funciones.inc.php",envio,function(datos_devueltos){
+						console.log(datos_devueltos);
+						myObj = JSON.parse(datos_devueltos);
+						$
+      			for (x in myObj) {
+							$("#canciones tbody").append(
+								"<tr>"+
+									"<td>"+myObj[x].id+"</td>"+
+									"<td>"+myObj[x].titulo+"</td>"+
+									"<td>"+myObj[x].grupo+"</td>"+
+									"<td>"+myObj[x].ruta+"</td>"+
+									"<td>"+myObj[x].duracion+"</td>"+
+									"<td> <i class='fa fa-trash-o' aria-hidden='true' title='"+myObj[x].id+"'></i> </td>"+
+								"</tr>"
+							);
+						}
+						$(".fa-trash-o").click(borrarCancion);
+						function borrarCancion(){
+							id=$(this).attr("title");
+							envio="o=d&id="+id;
+							$.post("./funciones.inc.php",envio,function(datos_devueltos){
+								alert(datos_devueltos);
+								location.reload();
+							});
+						}
+					});
+				}
+				$("#buscar").keyup(buscar);
+			});
+	</script>
 </head>
 <body>
   <?php
     require_once("../inc/funciones.inc.php");
-    require_once("inc/funciones.inc.php");
+    require_once("./funciones.inc.php");
     require_once("../class/Conexion.php");
 		require_once("../class/Cancion.php");
     iniciarSesion();
@@ -32,12 +75,16 @@
 		$listaC=$canciones->verCanciones();
 		//print_r($listaC);
 		echo "<h1>CANCIONES</h1>";
-		echo "<table>";
+		echo "<div id='cBusqueda'>";
+			echo "<label for='buscar'>Buscar: </label>";
+			echo "<input type='text' name='buscar' id='buscar'/>";
+		echo "</div>";
+		echo "<table id='canciones'>";
 		echo "<thead>";
 		echo "<tr>";
 		foreach ($listaC as $key => $value) {
 			foreach ($value as $key => $value2) {
-				echo "<th>".$key."</th>";
+				echo "<th>".formatearTexto($key)."</th>";
 			}
 			break;
 		}
@@ -45,14 +92,6 @@
 		echo "</tr>";
 		echo "</thead>";
 		echo "<tbody>";
-		foreach ($listaC as $key => $value) {
-			echo "<tr>";
-			foreach ($value as $key => $value2) {
-				echo "<td>".$value2."</td>";
-			}
-			echo "<td></td>";
-			echo "</tr>";
-		}
 		echo "</tbody>";
 		echo "</table>";
    ?>

@@ -17,7 +17,7 @@
 <body>
 	<?php
 	require_once("../inc/funciones.inc.php");
-	require_once("./inc/funciones.inc.php");
+	require_once("./funciones.inc.php");
 	require_once("../class/Conexion.php");
 		iniciarSesion();
     	if(!isset($_SESSION['id'])){

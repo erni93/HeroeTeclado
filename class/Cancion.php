@@ -27,6 +27,15 @@ class Cancion{
                 return "No existe la canción";
             }
     }
+		public function verCancionN($nombre) {
+	            $sql = "SELECT * from canciones WHERE titulo like '%".$nombre."%'";
+	        		$consulta= $this->db->query($sql);
+							$canciones=array();
+							while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+					    	array_push($canciones,$fila);
+							}
+							return $canciones;
+	    }
 		public function verCanciones() {
 	            $sql = "SELECT * from canciones";
 	        		$consulta= $this->db->query($sql);
@@ -36,7 +45,8 @@ class Cancion{
 							}
 							return $canciones;
 	    }
-		public function addCancion($titulo,$grupo,$ruta,$duracion){
+		public function addCancion($titulo,$grupo,$duracion){
+				$ruta="./canciones/".$titulo."_".$grupo;
 				$sql="INSERT INTO canciones VALUES (NULL,'".$titulo."','".$grupo."','".$ruta."','".$duracion."')";
 				if($this->db->query($sql)){
 					return 1;

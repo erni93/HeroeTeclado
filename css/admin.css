@@ -63,8 +63,23 @@ section>p{
 }
 table{
   margin:0 auto;
+  text-align: center;
 }
-
+td{
+  padding: 1% 0%;
+width: 10%;
+}
+th{
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+#cBusqueda{
+  text-align: center;
+  margin-bottom: 2em;
+}
+#cBusqueda label{
+  padding-right: 1em;
+}
  .adInicio:hover{background-color: white;color:black;}
  .adCanciones:hover{background-color: white;color:black;}
  .adPuntuaciones:hover{background-color: white;color:black;}
