@@ -1,9 +1,9 @@
 <?php
     require("../inc/funciones.inc.php");
     require("../class/Conexion.php");
-    require("../class/Usuario.php"); 
+    require("../class/Usuario.php");
     iniciarSesion();
-    crearNombreIdSesion();   
+    crearNombreIdSesion();
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
             }
             /*$db = new SQLite3('../bbdd/heroeteclado.sqlite');
 
-            //$results = $db->query('SELECT * FROM usuarios WHERE correo = ? AND password=?;'); 
+            //$results = $db->query('SELECT * FROM usuarios WHERE correo = ? AND password=?;');
             /*$db = Conexion::dameInstancia();
             $db2 = Conexion::conexion();
             echo $db2."db";*/
@@ -54,24 +54,24 @@
                             $emailBBDD=$prueba['correo'];
                             $nickBBDD=$prueba['nick'];
                             $login=true;
-                          
+
                         }
-                    
+
                 } else {
-                   // echo "<p class='error'>", "** Fallo en la ejecución de la consulta !!<br><br>" .$db->errno. " - " .$db->error. " **</p>";	
+                   // echo "<p class='error'>", "** Fallo en la ejecución de la consulta !!<br><br>" .$db->errno. " - " .$db->error. " **</p>";
                 }
             } else {
                 //echo "<p class='error'>", "* Fallo en la preparación de la consulta !!<br><br>en stmt: " .$db->errno. " y en mysqli: ".$db->error." *</p>";
-               
+
             }
 
-          
-        
+
+
             echo $mensaje;*/
 		?>
 	</head>
 	<body>
-		<header>		
+		<header>
 			<h1 class="usuariologueado">
                 <?php if($login)echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
 			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
@@ -87,14 +87,14 @@
                         $usuario->login_usuario($emailBBDD,$pass);*/
                         echo '<ul class="menu-user"><li id="mis-datos"><a href="datos.php">Mis Datos</a></li><li id="mis-favoritas"><a href="favoritas.php">Mis Favortias</a></li><li id="mis-valoraciones"><a href="valoracion.php">Valoración Pelis</a></li>';
                         if($_SESSION['rango']==0){
-                            echo '<li id="administrar"><a href="../admin/admin.php">Administrar</a></li>';
+                            echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
                         }
                         echo '</ul>';
                     //}
                //header("Location: datos.php");
                ?>
            </div>
-            
+
 		</section>
 		<footer>
 		    <a href="../index.php">Inicio</a>

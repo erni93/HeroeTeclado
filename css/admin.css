@@ -1,0 +1,72 @@
+/**
+ * Heroes del Teclado
+ *
+ * Archivo CSS principal
+ *
+ * @project    	2ºDAW, Practica conjunta
+ * @author    	David Parro
+ * @author    	Ernesto del Valle
+ * @author    	Jonatan Tomillo
+ * @author    	Pablo Ruiz
+ * @author    	Renzo Roca
+ *
+ */
+ @font-face {
+    font-family: 'heroe';
+    src: url("../fonts/heroes.ttf");
+}
+body{
+  min-width: 400px;
+}
+ body>header{
+ 	font-family: 'heroe',sans-serif;
+ 	font-size:250%;
+ 	letter-spacing: 0.2ex;
+ }
+ ul.menu-admin{
+ 	padding: 0;
+ 	margin: 0;
+ 	list-style: none;
+ 	top:0;
+ 	width:100%;
+ 	background-color: black;
+  color:white;
+ }
+ .menu-admin>li{
+ 	text-align: center;
+ 	/*background-color:white;*/
+ }
+ .menu-admin>li>a{
+ 	/*color:white;*/
+ 	color:inherit;
+ 	text-decoration: none;
+ 	display: block;
+ 	/*width: 170px;*/
+ }
+h1,h2{
+  text-align: center;
+  font-family: 'heroe';
+}
+h1{
+  margin:5% 0 ;
+  font-size: 7em;
+}
+h2{
+  font-size:4em;
+}
+section{
+  border: 2px solid black;
+  min-height: 200px;
+}
+section>p{
+  padding-left: 6%;
+}
+table{
+  margin:0 auto;
+}
+
+ .adInicio:hover{background-color: white;color:black;}
+ .adCanciones:hover{background-color: white;color:black;}
+ .adPuntuaciones:hover{background-color: white;color:black;}
+ .adUsuarios:hover{background-color: white;color:black;}
+ .miCuenta:hover{background-color: white;color:black;}
