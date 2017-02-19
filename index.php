@@ -45,10 +45,11 @@
 		<div id="contenedor">
 			<section id="principal">
 				<div id="cancionesP">
-					
+					<iframe src="./juego/index.html" width="637" height="660" align="center">
 				</div>
 				<div id="juegoP">
-					
+					<!-- temporal -->
+					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
 				<div id="puntuacionesP">
 					
