@@ -45,7 +45,7 @@
 		<div id="contenedor">
 			<section id="principal">
 				<div id="cancionesP">
-					
+					<iframe src="./juego/index.html" width="637" height="660" align="center">
 				</div>
 				<div id="juegoP">
 					<!-- temporal -->
