@@ -48,7 +48,8 @@
 					
 				</div>
 				<div id="juegoP">
-					
+					<!-- temporal -->
+					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
 				<div id="puntuacionesP">
 					

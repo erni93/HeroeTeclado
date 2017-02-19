@@ -8,7 +8,7 @@ app.results = new ENGINE.Scene({
 		this.entities.add(ENGINE.Static, {
 			x: app.width/2,
 			y: 265,
-			text: "Congratulations! Your result is:",
+			text: "Felicidades! Tu resultado es:",
 			onlytext: true,
 			opacity: 0,
 			offset: 60,
