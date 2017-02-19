@@ -46,9 +46,14 @@ class Cancion{
 							return $canciones;
 	    }
 		public function addCancion($titulo,$grupo,$duracion){
-				$ruta="./canciones/".$titulo."_".$grupo;
+				$tit_aux=explode(" ",trim($titulo));
+				$tit_aux2=implode("-",$tit_aux);
+				$gru_aux=explode(" ",trim($grupo));
+				$gru_aux2=implode("-",$gru_aux);
+				$ruta="canciones/".$tit_aux2."_".$gru_aux2;
 				$sql="INSERT INTO canciones VALUES (NULL,'".$titulo."','".$grupo."','".$ruta."','".$duracion."')";
 				if($this->db->query($sql)){
+					mkdir("../".$ruta);
 					return 1;
 				}else{
 					return 0;

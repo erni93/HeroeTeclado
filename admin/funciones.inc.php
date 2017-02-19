@@ -3,14 +3,16 @@
   if(isset($_POST['o'])){
     switch ($_POST['o']) {
       case 'b':
-        $nombre=$_POST['nombre'];
-        buscarCancion($nombre);
+        buscarCancion($_POST['nombre']);
         break;
       case 't':
         verTodas();
         break;
       case 'd':
         borrarCancion($_POST['id']);
+        break;
+      case 'a':
+        anadirCancion($_POST['titulo'],$_POST['grupo'],$_POST['duracion']);
         break;
       default:
         # code...
@@ -50,5 +52,9 @@
   function borrarCancion($id){
     $canciones=new Cancion;
     echo $canciones->removeCancion($id);
+  }
+  function anadirCancion($titulo,$grupo,$duracion){
+    $canciones=new Cancion;
+    echo $canciones->addCancion($titulo,$grupo,$duracion);
   }
 ?>

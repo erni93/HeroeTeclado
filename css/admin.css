@@ -75,10 +75,19 @@ th{
 }
 #cBusqueda{
   text-align: center;
+  margin: 0 auto;
   margin-bottom: 2em;
+  max-width: 1000px;
 }
 #cBusqueda label{
   padding-right: 1em;
+}
+#cBusqueda i{
+  vertical-align: middle;
+  float: right;
+}
+label{
+  width: 20%;
 }
  .adInicio:hover{background-color: white;color:black;}
  .adCanciones:hover{background-color: white;color:black;}
