@@ -50,14 +50,6 @@
                         echo '</ul>';
                ?>
            </div>
-           <div class="moddatos">
-               <form method="post" action="#">
-                   <label>Nick:</label><input type="text" name="nick" id="nick" />
-                   <label>Email:</label><input type="text" name="correo" id="correo" />
-                   <label>Contraseña:</label><input type="password" name="pass" id="pass" />
-                   <label>Avatar</label><input type="file" name="avatar" id="avatar" />
-               </form>
-           </div>
 		</section>
 		<footer>
 		    <a href="../index.php">Inicio</a>
