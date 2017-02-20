@@ -10,31 +10,34 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Cartelera</title>
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="./css/stylelogin.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
             $mensaje="";
             $emailBBDD="";
             $nickBBDD="";
+            $login=true;
             if(isset($_SESSION['id'])){
                 $emailBBDD=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
 				$rango=$_SESSION['rango'];
+                echo "Con sesion";
             }else{
                 header("Location: login.php");
                 $usuario=$_POST['user'];
                 $pass=$_POST['pass'];
 				$rango=-1;
+                echo "Sin sesion";
             }
 		?>
 	</head>
 	<body>
 		<header>
 			<h1 class="usuariologueado">
-                <?php echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
-			    <p><?php echo $emailBBDD;?></p>
-			    <p><?php echo $nickBBDD;?></p>
-				<p><?php echo $rango;?></p>
+                <?php if($login)echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
+			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
+			    <p><?php if($login)echo $nickBBDD;?></p>
+				<p><?php if($login)echo $rango;?></p>
 			</h1>
 		</header>
 		<section>
@@ -46,16 +49,6 @@
                         }
                         echo '</ul>';
                ?>
-           </div>
-           <div class="moddatos">
-               <form method="post" action="#">
-                   <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/><br />
-                   <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/><br />
-                   <label>Contraseña:</label><input type="password" name="pass" id="pass" /><br />
-                   <?php echo '<img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar">'?><input type="file" name="avatar" id="avatar" />
-                   
-                   
-               </form>
            </div>
 		</section>
 		<footer>

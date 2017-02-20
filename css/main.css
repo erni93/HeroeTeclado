@@ -15,7 +15,7 @@
     font-family: 'heroe';
     src: url("../fonts/heroes.ttf");
 }
- body>header{
+ body>header.main{
  	font-family: 'heroe',sans-serif;
  	font-size:250%;
  	letter-spacing: 0.2ex;
@@ -85,4 +85,8 @@ iframe{
 }
 #principal{
 	padding-top:3.5%;
+}
+form>img{
+	width: 128px;
+	height: 128px;
 }

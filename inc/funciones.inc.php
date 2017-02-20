@@ -12,8 +12,9 @@ function crearNombreIdSesion() {
 	$_SESSION['nombreId'] = $sn."=". $si;
 }
 
-function iniciarVariables(){
-	
+function verImagen($id){
+	$instancia = Conexion::dameInstancia();
+	$con=$instancia->conexion();
 }
 
 ?>
