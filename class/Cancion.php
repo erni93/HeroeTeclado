@@ -45,7 +45,7 @@ class Cancion{
 							}
 							return $canciones;
 	    }
-		public function addCancion($titulo,$grupo,$duracion){
+		public function addCancion($titulo,$grupo,$duracion,$caratula,$cancion){
 				$tit_aux=explode(" ",trim($titulo));
 				$tit_aux2=implode("-",$tit_aux);
 				$gru_aux=explode(" ",trim($grupo));
@@ -54,6 +54,13 @@ class Cancion{
 				$sql="INSERT INTO canciones VALUES (NULL,'".$titulo."','".$grupo."','".$ruta."','".$duracion."')";
 				if($this->db->query($sql)){
 					mkdir("../".$ruta);
+					$dir_subida = '../'.$ruta;
+					$extension=array_pop(explode(".",basename($caratula['name'])));
+					echo $extension;
+					$fCratula = $dir_subida . "/caratula." .$extension;
+					$fCancion = $dir_subida . "/cancion."  .array_pop(explode(".",basename($cancion['name'])));
+					move_uploaded_file($cancion['tmp_name'], $fCancion);
+					move_uploaded_file($caratula['tmp_name'], $fCratula);
 					return 1;
 				}else{
 					return 0;

@@ -86,8 +86,8 @@ th{
   vertical-align: middle;
   float: right;
 }
-label{
-  width: 20%;
+#addSong label{
+  width: 50%;
 }
  .adInicio:hover{background-color: white;color:black;}
  .adCanciones:hover{background-color: white;color:black;}

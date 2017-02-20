@@ -1,7 +1,7 @@
 <?php
   require("../class/Cancion.php");
-  if(isset($_POST['o'])){
-    switch ($_POST['o']) {
+  if(isset($_REQUEST['o'])){
+    switch ($_REQUEST['o']) {
       case 'b':
         buscarCancion($_POST['nombre']);
         break;
@@ -12,7 +12,11 @@
         borrarCancion($_POST['id']);
         break;
       case 'a':
-        anadirCancion($_POST['titulo'],$_POST['grupo'],$_POST['duracion']);
+        print_r($_FILES);
+        //print_r($_POST);
+        //print_r($_GET);
+        //print_r($_REQUEST);
+        anadirCancion($_POST['titulo'],$_POST['grupo'],$_POST['duracion'],$_FILES['caratula'],$_FILES['cancion']);
         break;
       default:
         # code...
@@ -53,8 +57,8 @@
     $canciones=new Cancion;
     echo $canciones->removeCancion($id);
   }
-  function anadirCancion($titulo,$grupo,$duracion){
+  function anadirCancion($titulo,$grupo,$duracion,$caratula,$cancion){
     $canciones=new Cancion;
-    echo $canciones->addCancion($titulo,$grupo,$duracion);
+    echo $canciones->addCancion($titulo,$grupo,$duracion,$caratula,$cancion);
   }
 ?>
