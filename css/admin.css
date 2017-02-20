@@ -63,6 +63,7 @@ section>p{
 }
 table{
   margin:0 auto;
+  width:80%;
   text-align: center;
 }
 td{
@@ -80,15 +81,17 @@ th{
   max-width: 1000px;
 }
 #cBusqueda label{
+  width: auto;
   padding-right: 1em;
 }
 #cBusqueda i{
   vertical-align: middle;
   float: right;
 }
-#addSong label{
+label{
   width: 50%;
 }
+
  .adInicio:hover{background-color: white;color:black;}
  .adCanciones:hover{background-color: white;color:black;}
  .adPuntuaciones:hover{background-color: white;color:black;}

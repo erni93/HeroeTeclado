@@ -36,8 +36,8 @@
 			$consulta15=$db->query($sql15);
 			$consulta2=$db->query($sql2);
 			$consulta3=$db->query($sql3);
-			$usuariosAD=$consulta1->fetchArray();
-			$usuariosNO=$consulta15->fetchArray();
+			$usuariosNO=$consulta1->fetchArray();
+			$usuariosAD=$consulta15->fetchArray();
 			$usuarios=$usuariosNO[0]+$usuariosAD[0];
 			$cancionesC=$consulta2->fetchArray();
 			$puntuacionesC=$consulta3->fetchArray();

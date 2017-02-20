@@ -1,5 +1,27 @@
 <?php
-  require("../class/Cancion.php");
+  require_once("../class/Cancion.php");
+  require_once("../class/Usuario.php");
+  function cabeceraAdmin(){
+    echo '
+      <header>
+      <nav>
+        <ul class="container-fluid menu-admin">
+          <li class="adInicio col-md-2 col-md-offset-1"><a href="index.php">Inicio</a></li>
+          <li class="adCanciones col-md-2"><a href="canciones.php">Canciones</a></li>
+          <li class="adPuntuaciones col-md-2 "><a href="">Puntuaciones</a></li>
+          <li class="adUsuarios col-md-2 "><a href="usuarios.php">Usuarios</a></li>
+          <li class="miCuenta col-md-2 "><a href="../inc/cuenta.php">Mi Cuenta</a></li>
+        </ul>
+      </nav>
+    </header>';
+  }
+  function formatearTexto($text){
+    $nText="";
+    $nText.=strtoupper(substr($text,0,1));
+    $nText.=strtolower(substr($text,1));
+    return $nText;
+  }
+  //FUNCIONES PARA CANCIONES.PHP
   if(isset($_REQUEST['o'])){
     switch ($_REQUEST['o']) {
       case 'b':
@@ -23,26 +45,6 @@
         break;
     }
   }
-  function cabeceraAdmin(){
-    echo '
-      <header>
-      <nav>
-        <ul class="container-fluid menu-admin">
-          <li class="adInicio col-md-2 col-md-offset-1"><a href="index.php">Inicio</a></li>
-          <li class="adCanciones col-md-2"><a href="canciones.php">Canciones</a></li>
-          <li class="adPuntuaciones col-md-2 "><a href="">Puntuaciones</a></li>
-          <li class="adUsuarios col-md-2 "><a href="">Usuarios</a></li>
-          <li class="miCuenta col-md-2 "><a href="../inc/cuenta.php">Mi Cuenta</a></li>
-        </ul>
-      </nav>
-    </header>';
-  }
-  function formatearTexto($text){
-    $nText="";
-    $nText.=strtoupper(substr($text,0,1));
-    $nText.=strtolower(substr($text,1));
-    return $nText;
-  }
   function buscarCancion($nom){
     $canciones= new Cancion;
     $lista=$canciones->verCancionN($nom);
@@ -60,5 +62,29 @@
   function anadirCancion($titulo,$grupo,$duracion,$caratula,$cancion){
     $canciones=new Cancion;
     echo $canciones->addCancion($titulo,$grupo,$duracion,$caratula,$cancion);
+  }
+
+  //FUNCIONES PARA USUARIOS.PHP
+  if(isset($_REQUEST['u'])){
+    switch ($_REQUEST['u']) {
+      case 'b':
+        buscarUsuario($_POST['nombre']);
+        break;
+      case 'd':
+        borrarUsuario($_POST['id']);
+        break;
+      default:
+        # code...
+        break;
+    }
+  }
+  function buscarUsuario($nom){
+    $usuarios= new Usuario;
+    $lista=$usuarios->verUsuariosN($nom);
+    echo json_encode($lista);
+  }
+  function borrarUsuario($id){
+    $usuarios=new Usuario;
+    echo $usuarios->removeUser($id);
   }
 ?>

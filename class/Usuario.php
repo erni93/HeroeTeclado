@@ -2,28 +2,28 @@
 
 class Usuario {
     private $db;
-	
+
     public function __construct() {
         $this->instancia = Conexion::dameInstancia();
         $this->db=$this->instancia->conexion();
     }
 
     public function insertar_usuario($nick,$password,$correo,$avatar){ //pendiente de prueba
-        
+
         $sentencia = $this->db->prepare("insert into usuarios (nick,password,correo,avatar) values (?,?,?,?)");
         $sentencia->bindValue(1, $nick);
         $sentencia->bindValue(2, $password);
         $sentencia->bindValue(3, $correo);
         $sentencia->bindValue(4, $avatar,SQLITE3_BLOB);
-       
+
         if($sentencia->execute()){
             return true;
         }
-        
+
         return false;
     }
 
-    public function login_usuario($email,$password){ 
+    public function login_usuario($email,$password){
 
     	$success=false;
 
@@ -69,6 +69,35 @@ class Usuario {
 
     	return $puntos;
 
+    }
+
+    public function verUsuarios(){
+      $sql = "SELECT u.id,u.nick,u.correo,r.rango FROM usuarios u JOIN rangos r ON u.rango=r.id";
+      $consulta=$this->db->query($sql);
+      $usuarios=array();
+      while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+        array_push($usuarios,$fila);
+      }
+      return $usuarios;
+    }
+
+    public function verUsuariosN($nombre){
+      $sql = "SELECT u.id,u.nick,u.correo,r.rango FROM usuarios u JOIN rangos r ON u.rango=r.id WHERE nick like '%".$nombre."%'";
+      $consulta=$this->db->query($sql);
+      $usuarios=array();
+      while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+        array_push($usuarios,$fila);
+      }
+      return $usuarios;
+    }
+
+    public function removeUser($id){
+      $sql="DELETE FROM usuarios WHERE id=".$id;
+      if($this->db->query($sql)){
+        return 1;
+      }else{
+        return 0;
+      }
     }
 
     public function __clone() {

@@ -2,7 +2,7 @@
 	require_once("../inc/funciones.inc.php");
     require_once("./funciones.inc.php");
     require_once("../class/Conexion.php");
-	require_once("../class/Cancion.php");
+	require_once("../class/Usuario.php");
     iniciarSesion();
     if(!isset($_SESSION['id'])){
       header("Location: ../inc/login.php");
@@ -15,7 +15,7 @@
 <html lang="es-ES">
 <head>
 	<meta charset="UTF-8">
-	<title>Keyboard Hero Administration - Canciones</title>
+	<title>Keyboard Hero Administration - Usuarios</title>
 	<!--Normalize Css -->
 	<link rel="stylesheet" href="../css/normalize.css" 	type="text/css"	/>
 	<!--Bootstrap Css-->
@@ -39,33 +39,37 @@
 					//if(busqueda=""){
 						//envio="o=t";
 					//}else{
-						envio="o=b&nombre="+busqueda;
+						envio="u=b&nombre="+busqueda;
 					//}
-					$("#canciones tbody").find("tr").remove();
+					$("#usuarios tbody").find("tr").remove();
 					$.post("./funciones.inc.php",envio,function(datos_devueltos){
 						//console.log(datos_devueltos);
 						myObj = JSON.parse(datos_devueltos);
 						$
       			for (x in myObj) {
-							$("#canciones tbody").append(
+							var oRango=(myObj[x].rango=="admin")?"player":"admin";
+							$("#usuarios tbody").append(
 								"<tr>"+
 									"<td>"+myObj[x].id+"</td>"+
-									"<td>"+myObj[x].titulo+"</td>"+
-									"<td>"+myObj[x].grupo+"</td>"+
-									"<td>"+myObj[x].ruta+"</td>"+
-									"<td>"+myObj[x].duracion+"</td>"+
+									"<td>"+myObj[x].nick+"</td>"+
+									"<td>"+myObj[x].correo+"</td>"+
+									"<td><select>"+
+									//ESTO DEBERIA COGERLO DE LA BASE DE DATOS
+										"<option>"+myObj[x].rango+"</option>"+
+										"<option>"+oRango+"</option>"+
+									"</select></td>"+
 									"<td> <i class='fa fa-pencil'  aria-hidden='true' title='"+myObj[x].id+"'></i> </td>"+
 									"<td> <i class='fa fa-trash-o' aria-hidden='true' title='"+myObj[x].id+"'></i> </td>"+
 								"</tr>"
 							);
 						}
-						$(".fa-trash-o").click(borrarCancion);
+						$(".fa-trash-o").click(borrarUsuario);
 						$(".fa-pencil").click(function(){
-							alert("Funcion no implementanda");
+							$( "#dialog-form" ).dialog( "open" );
 						});
-						function borrarCancion(){
+						function borrarUsuario(){
 							id=$(this).attr("title");
-							envio="o=d&id="+id;
+							envio="u=d&id="+id;
 							$.post("./funciones.inc.php",envio,function(datos_devueltos){
 								alert(datos_devueltos);
 								location.reload();
@@ -75,10 +79,6 @@
 					});
 				}
 				$("#buscar").keyup(buscar);
-				$(".fa-plus-square").click(function(){
-        	//alert("Add song");
-        	$( "#dialog-form" ).dialog( "open" );
-    		});
 				/*---DIALOGO---*/
 				$( "#dialog-form" ).dialog({
 			      autoOpen: false,
@@ -90,7 +90,7 @@
 			      width: 370,
 			      modal: true,
 			      buttons: {
-			        "Registrar Canción": function(){
+			        "Modificar Usuario": function(){
 			        	if(validarDatos()){
 					        //var lacadena="o=a&"+$("#addSong").serialize();
 						    var archivos = new FormData(document.getElementById("addSong"));
@@ -103,24 +103,15 @@
 				              processData: false,
 				              success: function (data) {
 				              	if(data==0){
-				          			$(".error").html("HA OCURRIDO UN ERROR");
-				            		return false;
-				            	}
-								location.reload();
+				          				$(".error").html("HA OCURRIDO UN ERROR");
+				            			return false;
+				            		}
+												location.reload();
 				              },
 				              error: function (xhr, ajaxOptions,thrownError) {
 				                  alert(thrownError);}
 
-			        		});//ajax-PDF
-				          /*$.post("./funciones.inc.php",lacadena,function(datos_devueltos){
-				          if(datos_devueltos==0){
-				            //$(this).dialog( "close" );
-				            //location.reload();
-				            $(".error").html("HA OCURRIDO UN ERROR");
-				            return false;
-				            }
-								//location.reload();
-			          		})*/
+			        		});
 				        }
 			        },
 			        Cancelar: function() {
@@ -130,74 +121,40 @@
 			      close: function() {}
 			    });
 			function validarDatos(){
-				comprobacion=true;
-				var mensaje=new Array();
-				var extC=['gif','jpg','jpeg','png'];
-				var extS=['mp3','wav'];
-			    var cancion=$("#cancion").val().split('.').pop().toLowerCase();
-			    var caratula=$("#caratula").val().split('.').pop().toLowerCase();
-			    var duracion=$("#duracion").val();
-			    //var regD=/d{1,2}:d{2}/;
-			    var regD=/^\d+:[0-5][0-9]$/;
-			    alert(regD.test(duracion));
-				if(extC.indexOf(caratula)==-1){
-					comprobacion=false;
-					mensaje.push("La extension de la caratula no es valida");
-				}
-				if(extS.indexOf(cancion)==-1){
-					comprobacion=false;
-					mensaje.push("La extension de la cancion no es valida");
-				}
-				if(!regD.test(duracion)){
-					comprobacion=false;
-					mensaje.push("La duracion no es valida");
-				}
-				if(comprobacion){
-					return true;
-				}else{
-					for (var i = 0; i < mensaje.length; i++) {
-						$(".validateTips").append("<p>"+mensaje[i]+"</p>");
-					}
-					return false;
-				}
-
 			}
 		});
 	</script>
 </head>
 <body>
 	<!--DIALOGO ADD CANCION-->
-	<div id="dialog-form" title="Añadir cancion">
+	<div id="dialog-form" title="Editar Usuario">
     <p class="validateTips">Rellene todos los campos.</p>
     <p class="error"></p>
-    <form id="addSong" enctype="multipart/form-data" method="POST">
+    <form id="editUsers" enctype="multipart/form-data" method="POST">
       <fieldset>
-        <label for="tit">Nombre</label>
-        <input required="required" type="text" name="titulo" id="tit" class="text ui-widget-content ui-corner-all"><br/>
-				<label for="grup">Grupo</label>
-				<input required="required" type="text" name="grupo" id="grup" class="text ui-widget-content ui-corner-all"></br>
-				<label for="duracion">Duración</label>
-				<input required="required" type="text" name="duracion" id="duracion" placeholder="00:00" class="text ui-widget-content ui-corner-all"><br/>
-				<label for="cancion">Archivo de la canción</label>
-				<input required="required" type="file" name="cancion" id="cancion" class="text ui-widget-content ui-corner-all"><br/>
-				<label for="caratula">Caratula</label>
-				<input required="required" type="file" name="caratula" id="caratula" class="text ui-widget-content ui-corner-all"><br/>
+        <label for="nick">Nick</label>
+        <input required="required" type="text" name="nick" id="nick" class="text ui-widget-content ui-corner-all"><br/>
+				<label for="pass">Password</label>
+				<input required="required" type="password" name="pass" id="pass" class="text ui-widget-content ui-corner-all"></br>
+				<label for="correo">correo</label>
+				<input required="required" type="text" name="correo" id="correo" class="text ui-widget-content ui-corner-all"><br/>
+				<label for="avatar">Avatar</label>
+				<input required="required" type="file" name="avatar" id="avatar" class="text ui-widget-content ui-corner-all"><br/>
         <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
       </fieldset>
     </form>
   </div>
   <?php
     cabeceraAdmin();
-		$canciones=new Cancion;
-		$listaC=$canciones->verCanciones();
+		$usuarios=new Usuario;
+		$listaC=$usuarios->verUsuarios();
 		//print_r($listaC);
-		echo "<h1>CANCIONES</h1>";
+		echo "<h1>USUARIOS</h1>";
 		echo "<div id='cBusqueda'>";
 			echo "<label for='buscar'>Buscar: </label>";
 			echo "<input type='text' name='buscar' id='buscar'/>";
-			echo '<i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>';
 		echo "</div>";
-		echo "<table id='canciones'>";
+		echo "<table id='usuarios'>";
 		echo "<thead>";
 		echo "<tr>";
 		foreach ($listaC as $key => $value) {
