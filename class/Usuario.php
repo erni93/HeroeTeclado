@@ -11,14 +11,16 @@ class Usuario {
     public function insertar_usuario($nick,$password,$correo,$avatar){ //pendiente de prueba
         
         $sentencia = $this->db->prepare("insert into usuarios (nick,password,correo,avatar) values (?,?,?,?)");
-        $password_md5=md5($password);
         $sentencia->bindValue(1, $nick);
-        $sentencia->bindValue(2, $password_md5);
+        $sentencia->bindValue(2, $password);
         $sentencia->bindValue(3, $correo);
-        $sentencia->bindValue(4, $avatar);
+        $sentencia->bindValue(4, $avatar,SQLITE3_BLOB);
        
-        $sentencia->execute();
+        if($sentencia->execute()){
+            return true;
+        }
         
+        return false;
     }
 
     public function login_usuario($email,$password){ 

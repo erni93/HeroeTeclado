@@ -27,12 +27,14 @@
         <?php
         if(isset($_POST['registrar'])){
             if($_FILES['imagen']['error']==0){
-                    $imagen_temporal = $_FILES['imagen']['tmp_name'];
-                    $tipo = $_FILES['imagen']['type'];
-                    $fp = fopen($imagen_temporal, 'r+b');
-                    $data = fread($fp, filesize($imagen_temporal));
-                    fclose($fp);
-                    $data = mysql_escape_string($data);
+                    $dir_subida = '../img/';
+                    $fichero_subido = $dir_subida . basename($_FILES['imagen']['name']);
+                    if (move_uploaded_file($_FILES['imagen']['tmp_name'], $dir_subida.$_FILES['imagen']['name'])){
+                       echo "El archivo ha sido cargado correctamente.";
+                    }else{
+                       echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
+                    }
+                    $data=file_get_contents($fichero_subido);
                     $newuser=new Usuario;
                     if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
                         echo '<p class="noerror">Usuario registrado correctamente';
@@ -54,10 +56,11 @@
             } else{
 
                 $imagen_temporal = "../img/sinfoto.png";
-                $fp = fopen($imagen_temporal, 'r+b');
+                /*$fp = fopen($imagen_temporal, 'r+b');
                 $data = fread($fp, filesize($imagen_temporal));
                 fclose($fp);
-                $data = mysql_escape_string($data);
+                $data = mysql_escape_string($data);*/
+                $data=file_get_contents($imagen_temporal);
                 $newuser=new Usuario;
                 if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
                     echo '<p class="noerror">Usuario registrado correctamente';
@@ -81,7 +84,7 @@
         
 		?>
 		<footer>
-		    <a href="../index.php">Inicio</a>
+		    <a href="../inc/cuenta.php">Inicio</a>
 			<p>Práctica 7 en PHP. David Parro Rubio</p>
 		</footer>
 	</body>

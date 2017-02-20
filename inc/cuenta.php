@@ -16,7 +16,6 @@
             $mensaje="";
             $emailBBDD="";
             $nickBBDD="";
-            $login=true;
             if(isset($_SESSION['id'])){
                 $emailBBDD=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
@@ -34,10 +33,10 @@
 	<body>
 		<header>
 			<h1 class="usuariologueado">
-                <?php if($login)echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
-			    <p><?php if($login)echo $emailBBDD;else echo "Usuario/contraseña incorrectos. <a href='login.php'>Volver</a>";?></p>
-			    <p><?php if($login)echo $nickBBDD;?></p>
-				<p><?php if($login)echo $rango;?></p>
+                <?php echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
+			    <p><?php echo $emailBBDD;?></p>
+			    <p><?php echo $nickBBDD;?></p>
+				<p><?php echo $rango;?></p>
 			</h1>
 		</header>
 		<section>
@@ -52,10 +51,12 @@
            </div>
            <div class="moddatos">
                <form method="post" action="#">
-                   <label>Nick:</label><input type="text" name="nick" id="nick" />
-                   <label>Email:</label><input type="text" name="correo" id="correo" />
+                   <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/>
+                   <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/>
                    <label>Contraseña:</label><input type="password" name="pass" id="pass" />
                    <label>Avatar</label><input type="file" name="avatar" id="avatar" />
+                   <?php echo '<img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar">'?>
+                   
                </form>
            </div>
 		</section>
