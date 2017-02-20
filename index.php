@@ -24,7 +24,7 @@
 		<script src="js/anclas.js"></script>
 	</head>
 	<body>
-		<header>
+		<header class="main">
 			<nav>
 				<ul class="container-fluid menu-principal">
 					<li class="juego col-md-2 "><a href="#principal" id="uno" class="link-1 ">Juego</a></li>

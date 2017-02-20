@@ -10,7 +10,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Cartelera</title>
-		<link rel="stylesheet" type="text/css" href="./css/stylelogin.css">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
             $mensaje="";
@@ -20,13 +20,11 @@
                 $emailBBDD=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
 				$rango=$_SESSION['rango'];
-                echo "Con sesion";
             }else{
                 header("Location: login.php");
                 $usuario=$_POST['user'];
                 $pass=$_POST['pass'];
 				$rango=-1;
-                echo "Sin sesion";
             }
 		?>
 	</head>
@@ -51,11 +49,11 @@
            </div>
            <div class="moddatos">
                <form method="post" action="#">
-                   <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/>
-                   <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/>
-                   <label>Contraseña:</label><input type="password" name="pass" id="pass" />
-                   <label>Avatar</label><input type="file" name="avatar" id="avatar" />
-                   <?php echo '<img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar">'?>
+                   <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/><br />
+                   <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/><br />
+                   <label>Contraseña:</label><input type="password" name="pass" id="pass" /><br />
+                   <?php echo '<img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar">'?><input type="file" name="avatar" id="avatar" />
+                   
                    
                </form>
            </div>
