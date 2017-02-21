@@ -171,6 +171,8 @@ app.game = new ENGINE.Scene({
 
   	onleave: function() {
   		app.score = this.score.score;
+  		$.post("controlador.php",{action: "actualizar", puntuacion: this.score.score});
+  		console.log("Puntuacion actualizada: " + this.score.score);
   		this.music.pause();
   		this.music.currentTime = 0;
   		this.list.reset();
