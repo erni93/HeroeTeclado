@@ -1,6 +1,6 @@
 Keyboard-Hero
 =============
-
+ORIGINAL AUTOR: mjanisz https://github.com/mjanisz/Keyboard-Hero
 My old HTML5 uni assignment, ported to an easy working engine
 
 This game is based on the engine from tutorials by Rezoner.
