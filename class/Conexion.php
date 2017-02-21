@@ -27,6 +27,9 @@ class Conexion {
 		return $i;
 
 	}
+	public function cerrarConexion(){
+		return $this->conex->close();
+	}
 
 	public function __clone() {
 		return "La clonacion de este objeto no esta permitida";

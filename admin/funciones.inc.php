@@ -1,6 +1,7 @@
 <?php
   require_once("../class/Cancion.php");
   require_once("../class/Usuario.php");
+  require_once("../class/Rango.php");
   function cabeceraAdmin(){
     echo '
       <header>
@@ -8,7 +9,7 @@
         <ul class="container-fluid menu-admin">
           <li class="adInicio col-md-2 col-md-offset-1"><a href="index.php">Inicio</a></li>
           <li class="adCanciones col-md-2"><a href="canciones.php">Canciones</a></li>
-          <li class="adPuntuaciones col-md-2 "><a href="">Puntuaciones</a></li>
+          <li class="adPuntuaciones col-md-2 "><a href="puntuaciones.php">Puntuaciones</a></li>
           <li class="adUsuarios col-md-2 "><a href="usuarios.php">Usuarios</a></li>
           <li class="miCuenta col-md-2 "><a href="../inc/cuenta.php">Mi Cuenta</a></li>
         </ul>
@@ -73,6 +74,10 @@
       case 'd':
         borrarUsuario($_POST['id']);
         break;
+      case 'c':
+        //echo $_POST['rangoN'];
+        actualizarRango($_POST['id'],idRango($_POST['rangoN']));
+        break;
       default:
         # code...
         break;
@@ -86,5 +91,31 @@
   function borrarUsuario($id){
     $usuarios=new Usuario;
     echo $usuarios->removeUser($id);
+  }
+  function idRango($nombre){
+    $rangos=new Rango;
+    return $rangos->verRangoID($nombre);
+  }
+  function actualizarRango($id,$rango){
+    $usuarios=new Usuario;
+    echo $usuarios->updateRango($id,$rango);
+  }
+  //FUNCIONES PARA PUNTUACIONES.PHP
+  if(isset($_REQUEST['p'])){
+    switch ($_REQUEST['p']) {
+      case 'b':
+        buscarUsuario($_POST['nombre']);
+        break;
+      case 'd':
+        borrarUsuario($_POST['id']);
+        break;
+      case 'c':
+        //echo $_POST['rangoN'];
+        actualizarRango($_POST['id'],idRango($_POST['rangoN']));
+        break;
+      default:
+        # code...
+        break;
+    }
   }
 ?>

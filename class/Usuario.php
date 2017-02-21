@@ -100,6 +100,15 @@ class Usuario {
       }
     }
 
+    public function updateRango($id,$rango){
+      $sql="UPDATE usuarios SET rango=".$rango." WHERE id=".$id;
+      if($this->db->query($sql)){
+        return 1;
+      }else{
+        return 0;
+      }
+    }
+
     public function __clone() {
        return "La clonacion de este objeto no esta permitida";
     }

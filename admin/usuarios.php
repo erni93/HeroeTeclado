@@ -1,8 +1,9 @@
 <?php
-	require_once("../inc/funciones.inc.php");
-    require_once("./funciones.inc.php");
-    require_once("../class/Conexion.php");
-	require_once("../class/Usuario.php");
+		require_once("../inc/funciones.inc.php");
+	  require_once("./funciones.inc.php");
+	  require_once("../class/Conexion.php");
+		require_once("../class/Usuario.php");
+		require_once("../class/Rango.php");
     iniciarSesion();
     if(!isset($_SESSION['id'])){
       header("Location: ../inc/login.php");
@@ -53,7 +54,7 @@
 									"<td>"+myObj[x].id+"</td>"+
 									"<td>"+myObj[x].nick+"</td>"+
 									"<td>"+myObj[x].correo+"</td>"+
-									"<td><select>"+
+									"<td><select class='rangoA'>"+
 									//ESTO DEBERIA COGERLO DE LA BASE DE DATOS
 										"<option>"+myObj[x].rango+"</option>"+
 										"<option>"+oRango+"</option>"+
@@ -67,6 +68,18 @@
 						$(".fa-pencil").click(function(){
 							$( "#dialog-form" ).dialog( "open" );
 						});
+						$(".rangoA").change(function(){
+							rango=$(this).val();
+							indice=$('#usuarios tr').index($(this).closest('tr'));
+							dato=$('#usuarios').find("tr").eq(indice).find("td").eq(0).html();
+							envio="u=c&rangoN="+rango+"&id="+dato;
+							$.post("./funciones.inc.php",envio,function(datos_devueltos){
+								if(datos_devueltos==1){
+									alert("Cambio de rango realizado con exito");
+									location.reload();
+								}
+							})
+						})
 						function borrarUsuario(){
 							id=$(this).attr("title");
 							envio="u=d&id="+id;
