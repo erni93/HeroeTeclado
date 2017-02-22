@@ -104,7 +104,7 @@
 			      modal: true,
 			      buttons: {
 			        "Modificar Usuario": function(){
-			        	if(validarDatos()){
+			        	/*if(validarDatos()){
 					        //var lacadena="o=a&"+$("#addSong").serialize();
 						    var archivos = new FormData(document.getElementById("addSong"));
 
@@ -125,7 +125,9 @@
 				                  alert(thrownError);}
 
 			        		});
-				        }
+								}*/
+									alert("FUNCION TEMPORALMENTE DESHABILITADA");
+
 			        },
 			        Cancelar: function() {
 			          $(this).dialog( "close" );
@@ -133,8 +135,8 @@
 			      },
 			      close: function() {}
 			    });
-			function validarDatos(){
-			}
+					function validarDatos(){
+					}
 		});
 	</script>
 </head>

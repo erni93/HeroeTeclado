@@ -2,6 +2,7 @@
   require_once("../class/Cancion.php");
   require_once("../class/Usuario.php");
   require_once("../class/Rango.php");
+  require_once("../class/Puntuacion.php");
   function cabeceraAdmin(){
     echo '
       <header>
@@ -104,18 +105,23 @@
   if(isset($_REQUEST['p'])){
     switch ($_REQUEST['p']) {
       case 'b':
-        buscarUsuario($_POST['nombre']);
+        buscarPuntuacion($_POST['nombre']);
         break;
       case 'd':
-        borrarUsuario($_POST['id']);
-        break;
-      case 'c':
-        //echo $_POST['rangoN'];
-        actualizarRango($_POST['id'],idRango($_POST['rangoN']));
+        borrarPuntuacion($_POST['id']);
         break;
       default:
         # code...
         break;
     }
+  }
+  function buscarPuntuacion($nom){
+    $puntuaciones= new Puntuacion;
+    $lista=$puntuaciones->verPuntuacionesN($nom);
+    echo json_encode($lista);
+  }
+  function borrarPuntuacion($id){
+    $puntuaciones= new Puntuacion;
+    echo $puntuaciones->removePuntuacion($id);
   }
 ?>
