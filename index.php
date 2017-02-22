@@ -47,27 +47,26 @@
 		<div id="contenedor">
 			<section id="principal">
 				<div id="cancionesP" class="col-md-6 col-md-offset-3" >
-					<iframe src="./juego/index.html" width="637" height="660" align="center">
 				</div>
 				<div id="juegoP">
 					<!-- temporal -->
 					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
 				<div id="puntuacionesP" class="col-md-3">
-  			     <table>
-  			       <caption>Puntuaciones</caption>
-               <thead>
-                 <tr>
-                   <th>Canción</th>
-                   <th>Puntuación</th>
-                   <th>Usuario</th>
-                 </tr>
-               </thead>
-               <tbody>
-                <?php
-                ?>
-               </tbody>
-  			     </table>
+  			     	<table>
+  			       		<caption>Puntuaciones</caption>
+	               		<thead>
+	                 		<tr>
+			                   <th>Canción</th>
+			                   <th>Puntuación</th>
+			                   <th>Usuario</th>
+	                 		</tr>
+	               		</thead>
+	              	 	<tbody>
+			                <?php
+			                ?>
+	               		</tbody>
+  			     	</table>
 				</div>
 			</section>
 			<section id="novedades">

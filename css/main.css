@@ -90,3 +90,17 @@ form>img{
 	width: 128px;
 	height: 128px;
 }
+
+
+/* PRIMER BLOQUE */
+#principal{
+	background-image: url("../img/fondo1.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+/* PRIMER BLOQUE - IFRAME JUEGO */
+#juegoP>iframe{
+	border: solid 3px black;
+	box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.75);
+}
