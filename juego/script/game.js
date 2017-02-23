@@ -1,6 +1,6 @@
 app.game = new ENGINE.Scene({
 
-	oncreate: function() {  
+	oncreate: function() {
 		this.entities = new ENGINE.Collection(this);
 		this.notes = new ENGINE.Collection(this);
 		this.list = new ENGINE.List();
@@ -11,7 +11,7 @@ app.game = new ENGINE.Scene({
 		this.music = app.assets.audio("ratatat");
 		this.music.play();
 		this.score = this.entities.add(ENGINE.Score, {
-			map: app.assets.sprite("pts").data 
+			map: app.assets.sprite("pts").data
 		});
 		this.entities.add(ENGINE.Static, {
 			map: app.assets.sprite("line").data,
@@ -47,7 +47,7 @@ app.game = new ENGINE.Scene({
 			} else {
 				this.delayfunction(this.timer, {
 					opacity: 0,
-				}, 8200+i*1000)				
+				}, 8200+i*1000)
 			}
 		};
 		this.chain = this.entities.add(ENGINE.Chain);
@@ -149,7 +149,7 @@ app.game = new ENGINE.Scene({
 			app.selectScene(app.results);
 		};
 		this.entities.step(delta);
-		this.notes.step(delta);   
+		this.notes.step(delta);
 		this.entities.call("step", delta);
 		this.notes.call("step", delta);
 	},
@@ -159,7 +159,7 @@ app.game = new ENGINE.Scene({
 			app.layer.drawImage(app.assets.image("bg"), 0, 0);
 			this.entities.call("render", delta);
 			this.notes.call("render", delta);
-			app.layer.drawImage(app.assets.image("logo"), 42, 18); 
+			app.layer.drawImage(app.assets.image("logo"), 42, 18);
 	},
 
 	onkeydown: function(key) {

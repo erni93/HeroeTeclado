@@ -24,6 +24,34 @@
 		<script src="js/menu.js"></script>-->
 		<!--anclas -->
 		<script src="js/anclas.js"></script>
+    <script type="text/javascript">
+      $( function() {
+        rellenarPuntuacion();
+
+
+
+        function rellenarPuntuacion(){
+          $("#tablaP tbody").find("tr").remove();
+          //
+          $.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
+  					console.log(datos_devueltos);
+  					myObj = JSON.parse(datos_devueltos);
+  					for (x in myObj) {
+              indice=parseInt(x)+1;
+  						$("#tablaP tbody").append(
+  							"<tr>"+
+  								"<td>"+indice+"</td>"+
+  								"<td>"+myObj[x].puntuacion+"</td>"+
+  								"<td>"+myObj[x].nick+"</td>"+
+  							"</tr>"
+  						);
+  					}
+          });
+          setTimeout(rellenarPuntuacion, 2000);
+          //
+        }
+      });
+    </script>
 	</head>
 	<body>
 		<header class="main">
@@ -60,9 +88,9 @@
 				<div id="juegoP" class="col-md-6">
 					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
-				
+
 				<div id="puntuacionesP" class="col-md-3">
-  			     	<table class="table table-responsive">
+  			     	<table class="table table-responsive" id="tablaP">
   			       		<caption>PUNTUACIONES</caption>
 	               		<thead>
 	                 		<tr>
@@ -73,13 +101,12 @@
 	               		</thead>
 	              	 	<tbody>
 	              	 		<!-- Datos de ejemplo que devolveria el PHP, mostrar ultimas puntuaciones de la musica seleccionada¿? -->
-	              	 		<tr>
+	              	 		<!--<tr>
 	              	 			<td>1</td>
 	              	 			<td>1242</td>
 	              	 			<td>Feredico</td>
 	              	 		</tr>
-			                <?php
-			                ?>
+                    -->
 	               		</tbody>
   			     	</table>
 				</div>
