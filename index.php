@@ -46,23 +46,37 @@
 		</header>
 		<div id="contenedor">
 			<section id="principal">
-				<div id="cancionesP" class="col-md-6 col-md-offset-3" >
+				<div id="cancionesP" class="col-md-3" >
+					<h1>MÚSICA</h1>
+					<!-- Datos de ejemplo que devolveria el PHP -->
+  			       	<div>
+  			       		<h2>Welcome to the Jungle</h2>
+	  			       	<p>Duración: <b>3:20 min</b></p>
+  			       	</div>
 				</div>
-				<div id="juegoP">
-					<!-- temporal -->
+				<div id="juegoP" class="col-md-6">
 					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
+				
 				<div id="puntuacionesP" class="col-md-3">
-  			     	<table>
-  			       		<caption>Puntuaciones</caption>
+  			     	<table class="table table-responsive">
+  			       		<caption>PUNTUACIONES</caption>
 	               		<thead>
 	                 		<tr>
-			                   <th>Canción</th>
-			                   <th>Puntuación</th>
-			                   <th>Usuario</th>
+	                 			<th>#</th>
+			                   	<th>Canción</th>
+			                   	<th>Puntuación</th>
+			                   	<th>Usuario</th>
 	                 		</tr>
 	               		</thead>
 	              	 	<tbody>
+	              	 		<!-- Datos de ejemplo que devolveria el PHP -->
+	              	 		<tr>
+	              	 			<td>1</td>
+	              	 			<td>Welcome to the jungle</td>
+	              	 			<td>1242</td>
+	              	 			<td>Feredico</td>
+	              	 		</tr>
 			                <?php
 			                ?>
 	               		</tbody>

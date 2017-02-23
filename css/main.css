@@ -15,6 +15,10 @@
     font-family: 'heroe';
     src: url("../fonts/heroes.ttf");
 }
+@font-face {
+    font-family: LCD_Solid;
+    src: url("../fonts/LCD_Solid.ttf");
+}
  body>header.main{
  	font-family: 'heroe',sans-serif;
  	font-size:250%;
@@ -98,9 +102,30 @@ form>img{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	font-family: "LCD_Solid";
+}
+#principal>div{
+	text-align: center;
 }
 /* PRIMER BLOQUE - IFRAME JUEGO */
 #juegoP>iframe{
 	border: solid 3px black;
 	box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.75);
+}
+
+/* PRIMER BLOQUE - TABLA */
+#principal td, #principal th{
+	text-align: center;
+}
+#principal>div>table>caption{
+	text-align: center;
+	font-size: 2em;
+	color: red;
+}
+#principal>div>table>thead{
+	color: #fff;
+    background-color: #373a3c;
+}
+#principal>div>table>tbody{
+	color: white;
 }
