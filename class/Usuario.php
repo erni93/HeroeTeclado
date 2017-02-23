@@ -109,6 +109,24 @@ class Usuario {
       }
     }
 
+    public function modificarPass($id,$newPass){
+      $sql="UPDATE usuarios SET password='".$newPass."' WHERE id=".$id;
+      if($this->db->query($sql)){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function modificarFoto($id,$newFoto){
+      $sql="UPDATE usuarios SET rango=".$newFoto." WHERE id=".$id;
+      if($this->db->query($sql)){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     public function __clone() {
        return "La clonacion de este objeto no esta permitida";
     }
