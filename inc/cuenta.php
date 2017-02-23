@@ -45,12 +45,12 @@
                              echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
                           }
                           $data=file_get_contents($fichero_subido);
-                          /*$newuser=new Usuario;
-                          if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
+                          $newUser=new Usuario;
+                          if($newUser->modificarFoto($_SESSION['id'],$data)){
                               echo '<p class="noerror">Avatar modificado correctamente';
                           }else{
                               echo "<p class='error'>Problema al modificar el avatar.</p>";
-                          }*/
+                          }
                   }else if($_FILES['avatar']['error']==1){
                     echo "<p>Avatar mal</p>";
                       echo "<h1 class='error'>La imagen supera el limite de tamaño(2MB)</h1>";
@@ -58,12 +58,12 @@
                     echo "<p>Avatar no existe</p>";
                       $imagen_temporal = "../img/sinfoto.png";
                       $data=file_get_contents($imagen_temporal);
-                      $newuser=new Usuario;
-                      /*if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
-                          echo '<p class="noerror">Usuario registrado correctamente';
+                      $newUser=new Usuario;
+                      if($newUser->modificarFoto($_SESSION['id'],$data)){
+                          echo '<p class="noerror">Avatar modificado correctamente';
                       }else{
-                          echo "<p class='error'>Problema al registrar el usuario. Usuario no registrado.</p>";
-                      }*/
+                          echo "<p class='error'>Problema al modificar el avatar.</p>";
+                      }
                   }
 
 

@@ -119,9 +119,12 @@ class Usuario {
     }
 
     public function modificarFoto($id,$newFoto){
-      $sql="UPDATE usuarios SET rango=".$newFoto." WHERE id=".$id;
-      if($this->db->query($sql)){
-        return true;
+      $sentencia = $this->db->prepare("UPDATE usuarios SET avatar=? WHERE id=?");
+      $sentencia->bindValue(1, $newFoto,SQLITE3_BLOB);
+      $sentencia->bindValue(2, $id);
+
+      if($sentencia->execute()){
+          return true;
       }else{
         return false;
       }

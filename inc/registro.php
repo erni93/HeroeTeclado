@@ -20,7 +20,7 @@
 	</head>
 	<body>
 
-		<header>		
+		<header>
 			<h1>Registro nuevo usuario</h1>
 		</header>
         <section>
@@ -56,10 +56,6 @@
             } else{
 
                 $imagen_temporal = "../img/sinfoto.png";
-                /*$fp = fopen($imagen_temporal, 'r+b');
-                $data = fread($fp, filesize($imagen_temporal));
-                fclose($fp);
-                $data = mysql_escape_string($data);*/
                 $data=file_get_contents($imagen_temporal);
                 $newuser=new Usuario;
                 if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
@@ -80,8 +76,8 @@
                 echo '</form>';
             echo '</div> ';
         }
-        
-        
+
+
 		?>
 		<footer>
 		    <a href="../inc/cuenta.php">Inicio</a>
