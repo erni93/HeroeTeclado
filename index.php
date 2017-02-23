@@ -49,8 +49,11 @@
 				<div id="cancionesP" class="col-md-3" >
 					<h1>MÚSICA</h1>
 					<!-- Datos de ejemplo que devolveria el PHP -->
-  			       	<div>
+  			       	<div id="musica-seleccionada">
   			       		<h2>Welcome to the Jungle</h2>
+  			       		<figure>
+  			       			<img src="./canciones/welcome-to-the-jungle/portada.jpg"></img>
+  			       		</figure>
 	  			       	<p>Duración: <b>3:20 min</b></p>
   			       	</div>
 				</div>
@@ -64,16 +67,14 @@
 	               		<thead>
 	                 		<tr>
 	                 			<th>#</th>
-			                   	<th>Canción</th>
 			                   	<th>Puntuación</th>
 			                   	<th>Usuario</th>
 	                 		</tr>
 	               		</thead>
 	              	 	<tbody>
-	              	 		<!-- Datos de ejemplo que devolveria el PHP -->
+	              	 		<!-- Datos de ejemplo que devolveria el PHP, mostrar ultimas puntuaciones de la musica seleccionada¿? -->
 	              	 		<tr>
 	              	 			<td>1</td>
-	              	 			<td>Welcome to the jungle</td>
 	              	 			<td>1242</td>
 	              	 			<td>Feredico</td>
 	              	 		</tr>
