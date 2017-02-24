@@ -17,7 +17,15 @@ class Puntuacion {
       }
       return $puntuaciones;
     }
-
+    public function verPuntuacionesUsuario($id){
+      $sql="SELECT p.id,titulo,puntuacion,nick,fecha FROM puntuaciones p JOIN canciones c ON p.id_cancion=c.id JOIN usuarios u ON p.id_usuario=u.id WHERE u.id = '".$id."' ORDER BY p.puntuacion DESC";
+      $consulta= $this->db->query($sql);
+      $puntuaciones=array();
+      while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+        array_push($puntuaciones,$fila);
+      }
+      return $puntuaciones;
+    }
     public function verPuntuacionesN($nombre){
       $sql="SELECT p.id,titulo,puntuacion,nick,fecha FROM puntuaciones p JOIN canciones c ON p.id_cancion=c.id JOIN usuarios u ON p.id_usuario=u.id WHERE titulo like '%".$nombre."%'";
       $consulta= $this->db->query($sql);

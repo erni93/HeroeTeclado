@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Cartelera</title>
+		<title>Cuenta</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
@@ -69,7 +69,7 @@
 		<section>
            <div class="datosusuario">
                <?php
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="#">Mis datos</a></li><li id="historial"><a href="historialusuario.php">Historial de canciones</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
+                        echo '<ul class="menu-user"><li id="mis-datos"><a href="#">Mis datos</a></li><li id="historial"><a href="historialusuario.php">Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php">Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
                         if($_SESSION['rango']==0){
                             echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
                         }

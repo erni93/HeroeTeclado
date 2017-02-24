@@ -2,6 +2,7 @@
     require("../inc/funciones.inc.php");
     require("../class/Conexion.php");
     require("../class/Usuario.php");
+    require("../class/Puntuacion.php");
     iniciarSesion();
     crearNombreIdSesion();
 ?>
@@ -9,7 +10,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Cartelera</title>
+		<title>Historial</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
@@ -26,7 +27,7 @@
                 $pass=$_POST['pass'];
 				        $rango=-1;
             }
-            
+
 		?>
 	</head>
 	<body>
@@ -41,7 +42,7 @@
 		<section>
            <div class="datosusuario">
                <?php
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="cuenta.php">Mis datos</a></li><li id="historial"><a href="#">Historial de canciones</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
+                        echo '<ul class="menu-user"><li id="mis-datos"><a href="cuenta.php">Mis datos</a></li><li id="historial"><a href="#">Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php">Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
                         if($_SESSION['rango']==0){
                             echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
                         }
@@ -49,8 +50,21 @@
                ?>
            </div>
            <div class="history">
-
+             <?php
+                $newPuntuaciones=new Puntuacion();
+                $resultado=$newPuntuaciones->verPuntuacionesUsuario($_SESSION['id']);
+                echo "<p>Historial de puntuaciones:</p>";
+                echo "<table>";
+                  echo "<tr><td>id</td><td>Canción</td><td>Puntuación</td><td>Fecha</td></tr>";
+                foreach ($resultado as $fila => $valor) {
+                  echo "<tr><td>".$valor['id']."</td><td>".$valor['titulo']."</td><td>".$valor['puntuacion']."</td><td>".$valor['fecha']."</td></tr>";
+                }
+                echo "</table>";
+              ?>
            </div>
+
+
+
 		</section>
 		<footer>
 		    <a href="../index.php">Inicio</a>

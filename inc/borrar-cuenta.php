@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Cartelera</title>
+		<title>Borrar cuenta</title>
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
@@ -54,7 +54,13 @@
            </div>
            <?php } else{
              echo "<p>Su cuenta está siendo borrada, reedireccionando...</p>";
-             header("Refresh: 3; ./finalizarsesion.php");
+             $newUser=new Usuario();
+             if($newUser->removeUser($_SESSION['id'])==1){
+               header("Refresh: 3; ./finalizarsesion.php");
+             }else{
+               echo "<p class='error'>ERROR. No se ha podido borrar la cuenta.</p>";
+             }
+
            }?>
 		</section>
 		<footer>

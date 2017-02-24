@@ -38,6 +38,7 @@
                     $newuser=new Usuario;
                     if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
                         echo '<p class="noerror">Usuario registrado correctamente';
+												header("Refresh: 5; ./login.php");
                     }else{
                         echo "<p class='error'>Problema al registrar el usuario. Usuario no registrado.</p>";
                     }
@@ -60,6 +61,7 @@
                 $newuser=new Usuario;
                 if($newuser->insertar_usuario($_POST['nick'],md5($_POST['pass']),$_POST['email'],$data)){
                     echo '<p class="noerror">Usuario registrado correctamente';
+										header("Refresh: 5; ./login.php");
                 }else{
                     echo "<p class='error'>Problema al registrar el usuario. Usuario no registrado.</p>";
                 }
