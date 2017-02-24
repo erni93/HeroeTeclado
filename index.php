@@ -4,6 +4,9 @@
     require_once("./class/Puntuacion.php");
     iniciarSesion();
     crearNombreIdSesion();
+    //Temporal
+    $_SESSION["cancion"] = 30;
+    print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,24 +34,18 @@
 
 
         function rellenarPuntuacion(){
-          $("#tablaP tbody").find("tr").remove();
-          //
-          $.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
-  					console.log(datos_devueltos);
+        	var filasTabla = "";
+    		$.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
+  					//console.log(datos_devueltos);
   					myObj = JSON.parse(datos_devueltos);
   					for (x in myObj) {
-              indice=parseInt(x)+1;
-  						$("#tablaP tbody").append(
-  							"<tr>"+
-  								"<td>"+indice+"</td>"+
-  								"<td>"+myObj[x].puntuacion+"</td>"+
-  								"<td>"+myObj[x].nick+"</td>"+
-  							"</tr>"
-  						);
+            			indice=parseInt(x)+1;
+            			filasTabla+="<tr><td>" + indice + "</td><td>" + myObj[x].puntuacion + "</td><td>" + myObj[x].nick + "</td></tr>";
   					}
-          });
-          setTimeout(rellenarPuntuacion, 2000);
-          //
+  					$("#tablaP tbody").html(filasTabla);
+  					console.log("Tabla puntuaciones actual actualizado");
+        	});
+        	setTimeout(rellenarPuntuacion, 2000);
         }
       });
     </script>
