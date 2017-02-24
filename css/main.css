@@ -152,3 +152,11 @@ form>label>img{
 #principal>div>table>tbody{
 	color: white;
 }
+
+section>h2{
+  margin-top: 0;
+  font-family: 'heroe',sans-serif;
+  font-size: 7em;
+  text-align: center;
+  padding-top: 2%;
+}

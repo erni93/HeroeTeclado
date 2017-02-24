@@ -5,7 +5,9 @@
     iniciarSesion();
     crearNombreIdSesion();
     //Temporal
-    $_SESSION["cancion"] = 30;
+    if(!isset($_SESSION["cancion"])){
+      $_SESSION["cancion"] = 30;
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +32,8 @@
       $( function() {
         rellenarPuntuacion();
         rellenarCaratula();
+        listaCanciones();
+
         function rellenarPuntuacion(){
         	var filasTabla = "";
     		$.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
@@ -57,6 +61,36 @@
             $("#musica-seleccionada").find("img").attr("src",caratula);
             $("#musica-seleccionada").find("b").html(duracion);
           });
+        //
+        }
+        function listaCanciones(){
+        //
+          envio="c=listar";
+          $.post("./inc/cancionesL.php",envio,function(datos_devueltos){
+  					console.log(datos_devueltos);
+  					myObj = JSON.parse(datos_devueltos);
+  					for (x in myObj) {
+              $("#lCanciones tbody").append(
+								"<tr>"+
+                  "<td>"+myObj[x].id+"</td>"+
+									"<td>"+myObj[x].titulo+"</td>"+
+									"<td>"+myObj[x].grupo+"</td>"+
+									"<td>"+myObj[x].duracion+"</td>"+
+								"</tr>"
+							);
+  					}
+            $("#lCanciones tbody").find("tr").click(seleccionar);
+        	});
+          function seleccionar(){
+            cancion=$(this).find("td").eq(0).html();
+            //alert(cancion);
+            envio="c=cambiar&cancion="+cancion;
+              $.post("./inc/cancionesL.php",envio,function(datos_devueltos){
+                //alert(datos_devueltos);
+                $("html, body").animate({ scrollTop: 0 }, 10);
+                setTimeout(function(){location.reload()}, 20);;
+              });
+          }
         //
         }
       });
@@ -90,7 +124,7 @@
   			       	<div id="musica-seleccionada">
   			       		<h2>Welcome to the Jungle</h2>
   			       		<figure>
-  			       			<img src="./canciones/welcome-to-the-jungle/portada.jpg"></img>
+  			       			<img src=""></img>
   			       		</figure>
 	  			       	<p>Duración: <b>3:20 min</b></p>
   			       	</div>
@@ -122,10 +156,26 @@
 				</div>
 			</section>
 			<section id="novedades">
+        <h2>Novedades</h2>
 			</section>
 			<section id="puntuaciones">
+        <h2>Puntuaciones</h2>
 			</section>
 			<section id="canciones">
+        <h2>Lista de canciones</h2>
+        <table id="lCanciones">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Canción</th>
+              <th>Grupo</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
 			</section>
 		</div>
 		<footer>

@@ -1,9 +1,9 @@
-<?php 
+<?php
 	require_once("../inc/funciones.inc.php");
 	require_once("../class/Conexion.php");
 	iniciarSesion();
 	//Obtener cancion seleccionada
-	$_SESSION["cancion"] = "30";
+	//$_SESSION["cancion"] = "30";
 
 	if (isset($_SESSION['id']) && isset($_SESSION["cancion"])){
 
