@@ -36,7 +36,6 @@
                   }
                 }
                   if($_FILES['avatar']['error']==0){
-                    echo "<p>Avatar existe</p>";
                           $dir_subida = '../img/';
                           $fichero_subido = $dir_subida . basename($_FILES['avatar']['name']);
                           if (move_uploaded_file($_FILES['avatar']['tmp_name'], $dir_subida.$_FILES['avatar']['name'])){
@@ -52,22 +51,8 @@
                               echo "<p class='error'>Problema al modificar el avatar.</p>";
                           }
                   }else if($_FILES['avatar']['error']==1){
-                    echo "<p>Avatar mal</p>";
                       echo "<h1 class='error'>La imagen supera el limite de tamaño(2MB)</h1>";
-                  } else{
-                    echo "<p>Avatar no existe</p>";
-                      $imagen_temporal = "../img/sinfoto.png";
-                      $data=file_get_contents($imagen_temporal);
-                      $newUser=new Usuario;
-                      if($newUser->modificarFoto($_SESSION['id'],$data)){
-                          echo '<p class="noerror">Avatar modificado correctamente';
-                      }else{
-                          echo "<p class='error'>Problema al modificar el avatar.</p>";
-                      }
                   }
-
-
-
 
             }
 		?>
@@ -84,7 +69,7 @@
 		<section>
            <div class="datosusuario">
                <?php
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="datos.php">Mis datos</a></li><li id="historial"><a href="historial.php">Historial de canciones</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
+                        echo '<ul class="menu-user"><li id="mis-datos"><a href="#">Mis datos</a></li><li id="historial"><a href="historialusuario.php">Historial de canciones</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
                         if($_SESSION['rango']==0){
                             echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
                         }
@@ -96,8 +81,8 @@
                    <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/><br />
                    <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/><br />
                    <label>Contraseña:</label><input type="password" name="pass" id="pass" /><br />
-                   <?php echo '<img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar">'?><input type="file" name="avatar" id="avatar" />
-                   <br /><input type="submit" name="modificar" value="Modificar datos">
+                   <?php echo '<label for="avatar"><img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar"></label>'?><input type="file" name="avatar" id="avatar" />
+                   <br /><input type="submit" name="modificar" value="Modificar datos" id="">
                </form>
            </div>
 		</section>

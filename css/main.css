@@ -99,7 +99,7 @@ iframe{
 #principal{
 	padding-top:3.5%;
 }
-form>img{
+form>label>img{
 	width: 128px;
 	height: 128px;
 }
