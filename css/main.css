@@ -41,7 +41,12 @@
  }
  .menu-principal>li{
  	text-align: center;
- 	/*background-color:white;*/
+ 	padding: 10px 0 0;
+ 	/* Cambiar con media query el alto, 1080p 73px */
+ 	height: 73px;
+ }
+ .menu-principal>li:first-child{
+ 	padding: 0;
  }
  .menu-principal>li>img{
  	width: 100%;
@@ -51,7 +56,6 @@
  	color:inherit;
  	text-decoration: none;
  	display: block;
- 	/*width: 170px;*/
  }
 .canciones:hover{background-color: purple;color:white;}
 .juego:hover{background-color: orange;color:white;}

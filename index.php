@@ -2,6 +2,7 @@
     require("./inc/funciones.inc.php");
     require_once("./class/Conexion.php");
     require_once("./class/Puntuacion.php");
+    require_once("./class/Novedad.php");
     iniciarSesion();
     crearNombreIdSesion();
     //Temporal
@@ -28,73 +29,7 @@
 		<script src="js/menu.js"></script>-->
 		<!--anclas -->
 		<script src="js/anclas.js"></script>
-    <script type="text/javascript">
-      $( function() {
-        rellenarPuntuacion();
-        rellenarCaratula();
-        listaCanciones();
-
-        function rellenarPuntuacion(){
-        	var filasTabla = "";
-    		$.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
-  					//console.log(datos_devueltos);
-  					myObj = JSON.parse(datos_devueltos);
-  					for (x in myObj) {
-            			indice=parseInt(x)+1;
-            			filasTabla+="<tr><td>" + indice + "</td><td>" + myObj[x].puntuacion + "</td><td>" + myObj[x].nick + "</td></tr>";
-  					}
-  					$("#tablaP tbody").html(filasTabla);
-  					console.log("Tabla puntuaciones actual actualizado");
-        	});
-        	setTimeout(rellenarPuntuacion, 2000);
-        }
-        function rellenarCaratula(){
-        //
-          $.post("./inc/rellenarPortada.php",function(datos_devueltos){
-            console.log(datos_devueltos);
-            myObj = JSON.parse(datos_devueltos);
-            caratula=myObj.ruta+"\/caratula.jpg";
-            titulo=myObj.titulo;
-            console.log(titulo);
-            duracion=myObj.duracion;
-            $("#musica-seleccionada").find("h2").html(titulo);
-            $("#musica-seleccionada").find("img").attr("src",caratula);
-            $("#musica-seleccionada").find("b").html(duracion);
-          });
-        //
-        }
-        function listaCanciones(){
-        //
-          envio="c=listar";
-          $.post("./inc/cancionesL.php",envio,function(datos_devueltos){
-  					console.log(datos_devueltos);
-  					myObj = JSON.parse(datos_devueltos);
-  					for (x in myObj) {
-              $("#lCanciones tbody").append(
-								"<tr>"+
-                  "<td class='oculto'>"+myObj[x].id+"</td>"+
-									"<td>"+myObj[x].titulo+"</td>"+
-									"<td>"+myObj[x].grupo+"</td>"+
-									"<td>"+myObj[x].duracion+"</td>"+
-								"</tr>"
-							);
-  					}
-            $("#lCanciones tbody").find("tr").click(seleccionar);
-        	});
-          function seleccionar(){
-            cancion=$(this).find("td").eq(0).html();
-            //alert(cancion);
-            envio="c=cambiar&cancion="+cancion;
-              $.post("./inc/cancionesL.php",envio,function(datos_devueltos){
-                //alert(datos_devueltos);
-                $("html, body").animate({ scrollTop: 0 }, 10);
-                setTimeout(function(){location.reload()}, 20);;
-              });
-          }
-        //
-        }
-      });
-    </script>
+    <script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
 		<header class="main">
@@ -120,13 +55,12 @@
 			<section id="principal">
 				<div id="cancionesP" class="col-md-3" >
 					<h1>MÚSICA</h1>
-					<!-- Datos de ejemplo que devolveria el PHP -->
   			       	<div id="musica-seleccionada">
-  			       		<h2>Welcome to the Jungle</h2>
+  			       		<h2>Ninguna canción</h2>
   			       		<figure>
   			       			<img src=""></img>
   			       		</figure>
-	  			       	<p>Duración: <b>3:20 min</b></p>
+	  			       	<p>Duración: <b>0:00 min</b></p>
   			       	</div>
 				</div>
 				<div id="juegoP" class="col-md-6">
@@ -144,19 +78,13 @@
 	                 		</tr>
 	               		</thead>
 	              	 	<tbody>
-	              	 		<!-- Datos de ejemplo que devolveria el PHP, mostrar ultimas puntuaciones de la musica seleccionada¿? -->
-	              	 		<!--<tr>
-	              	 			<td>1</td>
-	              	 			<td>1242</td>
-	              	 			<td>Feredico</td>
-	              	 		</tr>
-                    -->
 	               		</tbody>
   			     	</table>
 				</div>
 			</section>
 			<section id="novedades">
         <h2>Novedades</h2>
+       	<?php imprimirNovedades(); ?>
 			</section>
 			<section id="puntuaciones">
         <h2>Puntuaciones</h2>
@@ -166,7 +94,7 @@
         <table id="lCanciones">
           <thead>
             <tr>
-              <th class="oculto">Id</th>
+              <th>Id</th>
               <th>Canción</th>
               <th>Grupo</th>
               <th>Duración</th>

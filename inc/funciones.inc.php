@@ -27,4 +27,18 @@ function imprimirPuntuaciones(){
 		echo "</tr>";
 	}
 }
+function imprimirNovedades(){
+	
+	$novedades = new Novedad();
+	$listaN = $novedades->verNovedades();
+	$listaN_size = count($listaN);
+	echo "<div class='novedad'>";
+	for ($i = 0; $i < $listaN_size; $i++) {
+		echo "<h2>" . $listaN[$i]['titular'] . " </h2>";
+		echo $listaN[$i]['contenido'];
+		echo "<p>Fecha: " . $listaN[$i]['fecha'] . "</p>";
+	}
+	echo "</div>";
+	 
+}
 ?>
