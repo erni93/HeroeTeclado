@@ -29,9 +29,7 @@
     <script type="text/javascript">
       $( function() {
         rellenarPuntuacion();
-
-
-
+        rellenarCaratula();
         function rellenarPuntuacion(){
         	var filasTabla = "";
     		$.post("./inc/rellenaTablaPuntuacion.php",function(datos_devueltos){
@@ -45,6 +43,21 @@
   					console.log("Tabla puntuaciones actual actualizado");
         	});
         	setTimeout(rellenarPuntuacion, 2000);
+        }
+        function rellenarCaratula(){
+        //
+          $.post("./inc/rellenarPortada.php",function(datos_devueltos){
+            console.log(datos_devueltos);
+            myObj = JSON.parse(datos_devueltos);
+            caratula=myObj.ruta+"\/caratula.jpg";
+            titulo=myObj.titulo;
+            console.log(titulo);
+            duracion=myObj.duracion;
+            $("#musica-seleccionada").find("h2").html(titulo);
+            $("#musica-seleccionada").find("img").attr("src",caratula);
+            $("#musica-seleccionada").find("b").html(duracion);
+          });
+        //
         }
       });
     </script>

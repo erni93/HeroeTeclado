@@ -7,5 +7,4 @@ iniciarSesion();
 $puntuaciones=new Puntuacion;
 $lPunt=$puntuaciones->verPuntuacionID($_SESSION['cancion']);
 echo json_encode($lPunt);
-
 ?>

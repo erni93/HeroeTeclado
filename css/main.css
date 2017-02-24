@@ -1,16 +1,16 @@
-/** 
+/**
  * Heroes del Teclado
- * 
- * Archivo CSS principal  
- * 
+ *
+ * Archivo CSS principal
+ *
  * @project    	2ºDAW, Practica conjunta
  * @author    	David Parro
  * @author    	Ernesto del Valle
  * @author    	Jonatan Tomillo
  * @author    	Pablo Ruiz
  * @author    	Renzo Roca
- * 
- */ 
+ *
+ */
  @font-face {
     font-family: 'heroe';
     src: url("../fonts/heroes.ttf");
@@ -29,6 +29,7 @@
  	margin: 0;
  	list-style: none;
  	position: fixed;
+  z-index:1;
  	top:0;
  	width:100%;
  	background-image: url("../img/fondo0.jpg");
@@ -125,6 +126,9 @@ form>img{
 	background-color: orange;
 	border: solid 1px black;
 	border-radius: 1em;
+}
+#musica-seleccionada img{
+  width: 100%;
 }
 /* PRIMER BLOQUE - IFRAME JUEGO */
 #juegoP>iframe{
