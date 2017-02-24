@@ -2,7 +2,6 @@
     require("./inc/funciones.inc.php");
     require_once("./class/Conexion.php");
     require_once("./class/Puntuacion.php");
-    require_once("./class/Novedad.php");
     iniciarSesion();
     crearNombreIdSesion();
     //Temporal
@@ -84,7 +83,6 @@
 			</section>
 			<section id="novedades">
         <h2>Novedades</h2>
-       	<?php imprimirNovedades(); ?>
 			</section>
 			<section id="puntuaciones">
         <h2>Puntuaciones</h2>

@@ -19,6 +19,14 @@
     font-family: LCD_Solid;
     src: url("../fonts/LCD_Solid.ttf");
 }
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat.otf");
+}
+@font-face {
+    font-family: Exo2;
+    src: url("../fonts/Exo2.otf");
+}
  body>header.main{
  	font-family: 'heroe',sans-serif;
  	font-size:250%;
@@ -107,9 +115,18 @@ form>label>img{
 	width: 128px;
 	height: 128px;
 }
-
-
-/* PRIMER BLOQUE */
+section>h2{
+  margin-top: 0;
+  font-family: 'heroe',sans-serif;
+  font-size: 7em;
+  text-align: center;
+  padding-top: 2%;
+}
+.oculto{
+  position: relative;
+  top:-9999px;
+}
+/* ----------------- PRIMER BLOQUE -----------------  */
 #principal{
 	background-image: url("../img/fondo1.jpg");
 	background-repeat: no-repeat;
@@ -120,7 +137,7 @@ form>label>img{
 #principal>div{
 	text-align: center;
 }
-/* PRIMER BLOQUE - MUSICA */
+/* ----------------- PRIMER BLOQUE - MUSICA -----------------  */
 #cancionesP>h1{
 	color: red;
 }
@@ -134,13 +151,13 @@ form>label>img{
 #musica-seleccionada img{
   width: 100%;
 }
-/* PRIMER BLOQUE - IFRAME JUEGO */
+/* ----------------- PRIMER BLOQUE - IFRAME JUEGO -----------------  */
 #juegoP>iframe{
 	border: solid 3px black;
 	box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.75);
 }
 
-/* PRIMER BLOQUE - TABLA */
+/* ----------------- PRIMER BLOQUE - TABLA -----------------  */
 #principal td, #principal th{
 	text-align: center;
 }
@@ -156,14 +173,43 @@ form>label>img{
 #principal>div>table>tbody{
 	color: white;
 }
-
-section>h2{
-  margin-top: 0;
-  font-family: 'heroe',sans-serif;
-  font-size: 7em;
-  text-align: center;
-  padding-top: 2%;
+/* -----------------SEGUNDO BLOQUE NOVEDADES-----------------  */
+#novedades{
+	background-image: url("../img/fondo2.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	background-color: #358462;
 }
+.novedad{
+	text-align: center;
+	background-color: #85B087;
+	margin: 2em 15%;
+	border: 1px solid black;
+	font-family: Exo\ 2,Open Sans,Sans-serif;
+	font-weight: 300;
+	line-height: 150%;
+	letter-spacing: -.5px;
+}
+.novedad>h2{
+	font-family: Montserrat,Sans-serif;
+	font-weight: 600;
+	letter-spacing: -2px;
+	color: #B52C29;
+	font-size: 3em;
+}
+.novedad>p{
+	font-size: 1.5em;
+}
+.novedad>h2+p{
+	margin-top: 2em;
+}
+.novedad>h2+p+p{
+	margin-right: 2em;
+	text-align: right;
+}
+
+/* -----------------CUARTO BLOQUE CANCIONES-----------------  */
 #canciones{
   color:white;
 }
@@ -181,7 +227,4 @@ section>h2{
   border-bottom: 1px solid #ddd;
   padding: 1%;
 }
-.oculto{
-  position: relative;
-  top:-9999px;
-}
+

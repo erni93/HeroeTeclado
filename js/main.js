@@ -2,7 +2,7 @@ $(function() {
     rellenarPuntuacion();
     rellenarCaratula();
     listaCanciones();
-
+    listaNovedades();
     function rellenarPuntuacion() {
         var filasTabla = "";
         $.post("./inc/rellenaTablaPuntuacion.php", function(datos_devueltos) {
@@ -68,5 +68,10 @@ $(function() {
             });
         }
         //
+    }
+    function listaNovedades(){
+        $.post("./inc/obtenerNovedades.php",function(data){
+            $("#novedades").append(data); 
+        });
     }
 });
