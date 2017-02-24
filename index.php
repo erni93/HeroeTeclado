@@ -72,7 +72,7 @@
   					for (x in myObj) {
               $("#lCanciones tbody").append(
 								"<tr>"+
-                  "<td class='oculto'>"+myObj[x].id+"</td>"+
+                  "<td>"+myObj[x].id+"</td>"+
 									"<td>"+myObj[x].titulo+"</td>"+
 									"<td>"+myObj[x].grupo+"</td>"+
 									"<td>"+myObj[x].duracion+"</td>"+
@@ -166,7 +166,7 @@
         <table id="lCanciones">
           <thead>
             <tr>
-              <th class="oculto">Id</th>
+              <th>Id</th>
               <th>Canción</th>
               <th>Grupo</th>
               <th>Duración</th>

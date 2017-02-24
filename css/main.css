@@ -160,24 +160,3 @@ section>h2{
   text-align: center;
   padding-top: 2%;
 }
-#canciones{
-  color:white;
-}
-#lCanciones{
-
-  margin-left: 5%;
-  width: 80%;
-  text-align: center;
-}
-#lCanciones th{
-  border-bottom: 3px solid #ddd;
-  text-align: center;
-}
-#lCanciones td{
-  border-bottom: 1px solid #ddd;
-  padding: 1%;
-}
-.oculto{
-  position: relative;
-  top:-9999px;
-}
