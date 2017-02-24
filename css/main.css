@@ -31,12 +31,19 @@
  	position: fixed;
  	top:0;
  	width:100%;
- 	background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,175,75,1) 11%, rgba(37,135,51,1) 20%, rgba(37,135,51,1) 28%, rgba(168,39,25,1) 36%, rgba(168,39,25,1) 46%, rgba(189,21,178,1) 55%, rgba(189,21,178,1) 62%, rgba(148,135,148,1) 77%, rgba(148,135,148,1) 100%);
+ 	background-image: url("../img/fondo0.jpg");
+ 	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
  	border-bottom: solid 1px black;
+ 	z-index: 1;
  }
  .menu-principal>li{
  	text-align: center;
  	/*background-color:white;*/
+ }
+ .menu-principal>li>img{
+ 	width: 100%;
  }
  .menu-principal>li>a{
  	/*color:white;*/
