@@ -11,8 +11,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Historial</title>
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/cuenta.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+    <script src="https://use.fontawesome.com/2c348761fe.js"></script>
 		<?php
             $mensaje="";
             $emailBBDD="";
@@ -31,24 +32,22 @@
 		?>
 	</head>
 	<body>
-		<header>
-			<h1 class="usuariologueado">
-                <?php echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
-			    <p><?php echo $emailBBDD;?></p>
-			    <p><?php echo $nickBBDD;?></p>
-				<p><?php echo $rango;?></p>
-			</h1>
+    <header>
+			    <?php echo "<a href='finalizarsesion.php'><i class='fa fa-arrow-left' aria-hidden='true'></i>Finalizar Sesion</a>";?>
+          <div class="user">
+  			    <p><i class="fa fa-check-square-o" aria-hidden="true"></i>Conectado como: <?php echo $nickBBDD;?></p>
+          </div>
 		</header>
 		<section>
-           <div class="datosusuario">
-               <?php
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="cuenta.php">Mis datos</a></li><li id="historial"><a href="#">Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php">Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
-                        if($_SESSION['rango']==0){
-                            echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
-                        }
-                        echo '</ul>';
-               ?>
-           </div>
+      <div class="datosusuario">
+          <?php
+                   echo '<ul class="menu-user">';
+                   if($_SESSION['rango']==0){
+                       echo '<li id="administrar"><a href="../admin/index.php"><i class="fa fa-cogs" aria-hidden="true"></i>Administrar</a></li>';
+                   }
+                   echo '<li id="mis-datos"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Mis datos</a></li><li id="historial"><a href="historialusuario.php"><i class="fa fa-history" aria-hidden="true"></i>Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php"><i class="fa fa-user-times" aria-hidden="true"></i>Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php"><i class="fa fa-trash" aria-hidden="true"></i>Eliminar esta cuenta</a></li></ul>';
+          ?>
+      </div>
            <div class="history">
              <?php
                 $newPuntuaciones=new Puntuacion();
@@ -66,9 +65,15 @@
 
 
 		</section>
-		<footer>
-		    <a href="../index.php">Inicio</a>
-			<p>Práctica 7 en PHP. David Parro Rubio</p>
+    <footer>
+			<h2>Página desarrollada por los estudiantes de DAW:</h2>
+			<ul>
+				<li>David Parro</li>
+				<li>Ernesto del Valle</li>
+				<li>Jonatan Tomillo</li>
+				<li>Renzo Roca</li>
+				<li>Pablo Ruiz</li>
+			</ul>
 		</footer>
 	</body>
 </html>
