@@ -8,7 +8,7 @@ app.game = new ENGINE.Scene({
 
 	onenter: function() {
 		var parent = this;
-		this.music = app.assets.audio("ratatat");
+		this.music = app.assets.audio("cancion");
 		this.music.play();
 		this.score = this.entities.add(ENGINE.Score, {
 			map: app.assets.sprite("pts").data

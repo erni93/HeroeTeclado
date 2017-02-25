@@ -1,6 +1,8 @@
 <?php
 	require("crearcancion.php");
-	$notas = crearNotas();
+	require("../inc/duracionSeg.php");
+	$duracionSeg = getCancionSec();
+	$notas = crearNotas($duracionSeg);
 	echo json_encode($notas);
 	
  ?>

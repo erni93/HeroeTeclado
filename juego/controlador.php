@@ -7,13 +7,13 @@
 
 	if (isset($_SESSION['id']) && isset($_SESSION["cancion"])){
 
-		if (isset($_POST["action"])){
-			$action = $_POST["action"];
+		if (isset($_REQUEST["action"])){
+			$action = $_REQUEST["action"];
 			if ($action == "actualizar"){
-				if (isset($_POST["puntuacion"])){
+				if (isset($_REQUEST["puntuacion"])){
 					$id_cancion = $_SESSION["cancion"];
 					$id_usuario = $_SESSION['id'];
-					$puntuacion = intval($_POST["puntuacion"]);
+					$puntuacion = intval($_REQUEST["puntuacion"]);
 					//Verificar el tiempo de inicio del juego y el final para evitar falsas puntuaciones
 					$instancia=Conexion::dameInstancia();
 					$db=$instancia->conexion();

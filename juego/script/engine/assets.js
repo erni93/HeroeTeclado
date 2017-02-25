@@ -1,10 +1,18 @@
 ENGINE.Assets = function(loader) {
 
   this.loader = loader;
-
+	var cancion = $.ajax({
+        type: "POST",
+        data : { action : "cancion" },
+        url: "controlador.php",
+        cache: false,
+        async: false
+    }).responseText;
+  	
+  console.log("Cancion cargada, " + cancion);
   this.paths = {
 	images: "assets/images/",
-	audio: "assets/audio/"
+	audio: "../" + cancion + "/"
   };
 
   this.data = {
