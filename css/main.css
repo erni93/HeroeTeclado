@@ -180,6 +180,7 @@ section>h2{
 	background-position: center;
 	background-size: 100% 100%;
 	background-color: #358462;
+  color:white;
 }
 .novedad{
 	text-align: center;
@@ -208,9 +209,17 @@ section>h2{
 	margin-right: 2em;
 	text-align: right;
 }
-
+/* -----------------Bloque Puntuaciones----------------------*/
+#puntuaciones{
+  color:white;
+	background-image: url("../img/fondo3.jpg");
+	height: 800px;
+}
 /* -----------------CUARTO BLOQUE CANCIONES-----------------  */
 #canciones{
+  background-image: url("../img/fondo4.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
   color:white;
 }
 #lCanciones{
@@ -227,4 +236,3 @@ section>h2{
   border-bottom: 1px solid #ddd;
   padding: 1%;
 }
-
