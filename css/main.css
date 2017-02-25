@@ -209,13 +209,15 @@ section>h2{
 #puntuaciones{
   color:white;
 	background-image: url("../img/fondo3.jpg");
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
 	height: 800px;
 }
 /* -----------------CUARTO BLOQUE CANCIONES-----------------  */
 #canciones{
   background-image: url("../img/fondo4.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   color:white;
 }
 #lCanciones{

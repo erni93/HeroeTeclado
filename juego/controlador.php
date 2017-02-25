@@ -4,9 +4,7 @@
 	iniciarSesion();
 	//Obtener cancion seleccionada
 	//$_SESSION["cancion"] = "30";
-
 	if (isset($_SESSION['id']) && isset($_SESSION["cancion"])){
-
 		if (isset($_REQUEST["action"])){
 			$action = $_REQUEST["action"];
 			if ($action == "actualizar"){
@@ -34,6 +32,8 @@
 			}
 		}
 
+	}else{
+		echo "canciones/So-Payaso_Extremoduro";
 	}
 
  ?>
