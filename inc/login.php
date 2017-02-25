@@ -64,29 +64,23 @@
 		?>
 	</head>
 	<body>
-		<header>		
-			<h1>Acceso a mi cuenta</h1>
-		</header>
+				
+			
 		<section>
            <div id="acceso">
                 <div id="datos">
                    <form action="#" method="post" onsubmit="return validar()">
+                   		<h1>Acceso a mi cuenta</h1>
+	
+                       <input type="text" placeholder="Usuario" class="login-input" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
+                      <input type="password" class="login-input" placeholder="Contraseña" name="pass" id="pass"><br />
 
-                        <label for="user">Usuario: </label><input type="text" placeholder="Usuario" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
-                        <label for="pass">Contraseña: </label><input type="password" placeholder="Contraseña" name="pass" id="pass"><br />
-
-                        <input type="submit" value="Acceder" id="acceder" name="acceder">
+                       	<input type="submit" value="Acceder"  id="acceder" name="acceder"><button href="registro.php">¡Regístrate si no lo estas!</button><br/>
                         <a href="recordar_pass.php">¿Recordar contraseña?</a>
                    </form>
                 <p><?php if(isset($_POST['acceder'])&&isset($mensaje)) echo $mensaje ?></p>
                 </div>
-                <div id="registrar">
-                    <p>¿Aún no formas parte de nuestra red?</p>
-                    <p class="carac">Comparte tu opinion</p>
-                    <p class="carac">Valora las películas</p>
-                    <p class="carac">Reserva entradas</p>
-                    <a href="registro.php"><button>Registrar</button></a>
-                </div>
+              
            </div>
             
 		</section>
