@@ -32,28 +32,28 @@
                 if(!empty($_POST['pass'])){
                   $newUser=new Usuario();
                   if($newUser->modificarPass($_SESSION['id'],md5($_POST['pass']))){
-                    echo "<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
+                    $mensaje="<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
                   }else{
-                      echo "<p class='error'>No se ha podido cambiar la contraseña</p>";
+                      $mensaje="<p class='error'>No se ha podido cambiar la contraseña</p>";
                   }
                 }
                   if($_FILES['avatar']['error']==0){
                           $dir_subida = '../img/';
                           $fichero_subido = $dir_subida . basename($_FILES['avatar']['name']);
                           if (move_uploaded_file($_FILES['avatar']['tmp_name'], $dir_subida.$_FILES['avatar']['name'])){
-                             echo "El archivo ha sido cargado correctamente.";
+                             $mensaje= "El archivo ha sido cargado correctamente.";
                           }else{
-                             echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
+                             $mensaje= "Ocurrió algún error al subir el fichero. No pudo guardarse.";
                           }
                           $data=file_get_contents($fichero_subido);
                           $newUser=new Usuario;
                           if($newUser->modificarFoto($_SESSION['id'],$data)){
-                              echo '<p class="noerror">Avatar modificado correctamente';
+                              $mensaje= '<p class="noerror">Avatar modificado correctamente';
                           }else{
-                              echo "<p class='error'>Problema al modificar el avatar.</p>";
+                              $mensaje= "<p class='error'>Problema al modificar el avatar.</p>";
                           }
                   }else if($_FILES['avatar']['error']==1){
-                      echo "<h1 class='error'>La imagen supera el limite de tamaño(2MB)</h1>";
+                      $mensaje= "<h1 class='error'>La imagen supera el limite de tamaño(2MB)</h1>";
                   }
 
             }
@@ -85,6 +85,9 @@
                    <br /><input type="submit" name="modificar" value="Modificar datos" id="">
                </form>
            </div>
+           <?php
+              echo $mensaje;
+            ?>
 		</section>
     <footer>
 			<h2>Página desarrollada por los estudiantes de DAW:</h2>

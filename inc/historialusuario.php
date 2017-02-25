@@ -45,7 +45,7 @@
                    if($_SESSION['rango']==0){
                        echo '<li id="administrar"><a href="../admin/index.php"><i class="fa fa-cogs" aria-hidden="true"></i>Administrar</a></li>';
                    }
-                   echo '<li id="mis-datos"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Mis datos</a></li><li id="historial"><a href="historialusuario.php"><i class="fa fa-history" aria-hidden="true"></i>Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php"><i class="fa fa-user-times" aria-hidden="true"></i>Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php"><i class="fa fa-trash" aria-hidden="true"></i>Eliminar esta cuenta</a></li></ul>';
+                   echo '<li id="mis-datos"><a href="cuenta.php"><i class="fa fa-info-circle" aria-hidden="true"></i>Mis datos</a></li><li id="historial"><a href="historialusuario.php"><i class="fa fa-history" aria-hidden="true"></i>Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php"><i class="fa fa-user-times" aria-hidden="true"></i>Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php"><i class="fa fa-trash" aria-hidden="true"></i>Eliminar esta cuenta</a></li></ul>';
           ?>
       </div>
            <div class="history">
