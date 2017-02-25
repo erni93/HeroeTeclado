@@ -12,7 +12,8 @@
  *
  */
  i{margin-right: 1ex;}
- body{padding: 0;margin: 0;}
+ body{padding: 0;margin: 0;font-family:"Sniglet",cursive;}
+ form{font-family:"Sniglet",cursive;}
  /* ---------------- Seccion footer -------------------*/
  footer{
    color: white;
@@ -62,13 +63,14 @@ form>label>img{
 }
 .datosusuario>ul{
   display: flex;
+  flex-flow: row wrap;
   padding: 0;
   list-style: none;
   justify-content: space-around;
   margin:0;
 }
 .datosusuario>ul>li{
-  width: 100%;
+  flex:1;
 }
 .datosusuario>ul>li>a{
   text-decoration: none;

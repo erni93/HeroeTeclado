@@ -33,7 +33,7 @@
 	</head>
 	<body>
     <header>
-			    <?php echo "<a href='finalizarsesion.php'><i class='fa fa-arrow-left' aria-hidden='true'></i>Finalizar Sesion</a>";?>
+			    <?php echo "<a href='../index.php'><i class='fa fa-arrow-left' aria-hidden='true'></i>Volver al juego</a>";?>
           <div class="user">
   			    <p><i class="fa fa-check-square-o" aria-hidden="true"></i>Conectado como: <?php echo $nickBBDD;?></p>
           </div>
