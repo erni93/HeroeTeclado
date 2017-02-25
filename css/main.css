@@ -236,3 +236,25 @@ section>h2{
   border-bottom: 1px solid #ddd;
   padding: 1%;
 }
+/*----------------------------footer----------------------------*/
+footer{
+  color: white;
+  background-color: black;
+}
+footer>h2{
+  text-align: center;
+  margin:0;
+  padding-top: 1em ;
+  padding-bottom: 0.5em;
+}
+footer>ul{
+  margin:0;
+  padding: 0;
+  padding-bottom: 1em;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+footer>ul>li{
+  display: inline-block;
+}
