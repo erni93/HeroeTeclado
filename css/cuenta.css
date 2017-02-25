@@ -1,0 +1,80 @@
+/**
+ * Heroes del Teclado
+ *
+ * Archivo CSS LOGIN Y REGISTRO
+ *
+ * @project    	2ºDAW, Practica conjunta
+ * @author    	David Parro
+ * @author    	Ernesto del Valle
+ * @author    	Jonatan Tomillo
+ * @author    	Pablo Ruiz
+ * @author    	Renzo Roca
+ *
+ */
+ body{padding: 0;margin: 0;}
+ /* ---------------- Seccion footer -------------------*/
+ footer{
+   color: white;
+   background-color: #1C1C1C;
+ }
+ footer>h2{
+   text-align: center;
+   margin:0;
+   padding-top: 1em ;
+   padding-bottom: 0.5em;
+ }
+ footer>ul{
+   font-weight: bolder;
+   margin:0;
+   padding: 0;
+   padding-bottom: 1em;
+   list-style: none;
+   display: flex;
+   justify-content: space-around;
+ }
+ footer>ul>li{
+   display: inline-block;
+ }
+ /* ---------------- Seccion header -------------------*/
+header{
+  background-color: #F5F6CE;
+  font-size: 200%;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-content: center;
+  padding:0 1em;
+}
+header>a{
+  text-decoration: none;
+  align-self: center;
+}
+/* ---------------- Seccion section -------------------*/
+section{
+  text-align: center;
+}
+form>label>img{
+	width: 128px;
+	height: 128px;
+}
+.datosusuario>ul{
+  display: flex;
+  padding: 0;
+  list-style: none;
+  justify-content: space-around;
+  margin:0;
+}
+.datosusuario>ul>li{
+  width: 100%;
+}
+.datosusuario>ul>li>a{
+  text-decoration: none;
+  display: block;
+  color: black;
+  background-color: #CEE3F6;
+  padding: 1em;
+}
+#mis-datos,#historial,#finsesion,#administrar{
+  border-right: 2px white solid;
+}

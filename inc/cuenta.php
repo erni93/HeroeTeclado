@@ -10,7 +10,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Cuenta</title>
-		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link rel="stylesheet" type="text/css" href="../css/cuenta.css">
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<?php
             $mensaje="";
@@ -20,6 +20,7 @@
                 $emailBBDD=$_SESSION['correo'];
                 $pass=$_SESSION['password'];
 				        $rango=$_SESSION['rango'];
+                $nickBBDD=$_SESSION['nick'];
             }else{
                 header("Location: login.php");
                 $usuario=$_POST['user'];
@@ -59,21 +60,19 @@
 	</head>
 	<body>
 		<header>
-			<h1 class="usuariologueado">
-                <?php echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
-			    <p><?php echo $emailBBDD;?></p>
-			    <p><?php echo $nickBBDD;?></p>
-				<p><?php echo $rango;?></p>
-			</h1>
+			    <?php echo "<a href='finalizarsesion.php'>Finalizar Sesion</a>";?>
+          <div class="user">
+  			    <p>Conectado como: <?php echo $nickBBDD;?></p>
+          </div>
 		</header>
 		<section>
            <div class="datosusuario">
                <?php
-                        echo '<ul class="menu-user"><li id="mis-datos"><a href="#">Mis datos</a></li><li id="historial"><a href="historialusuario.php">Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php">Salir de la cuenta</a></li><li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li>';
+                        echo '<ul class="menu-user"><li id="mis-datos"><a href="#">Mis datos</a></li><li id="historial"><a href="historialusuario.php">Historial de canciones</a></li><li id="finsesion"><a href="finalizarsesion.php">Salir de la cuenta</a></li>';
                         if($_SESSION['rango']==0){
                             echo '<li id="administrar"><a href="../admin/index.php">Administrar</a></li>';
                         }
-                        echo '</ul>';
+                        echo '<li id="eliminar"><a href="borrar-cuenta.php">Eliminar esta cuenta</a></li></ul>';
                ?>
            </div>
            <div class="moddatos">
@@ -86,9 +85,15 @@
                </form>
            </div>
 		</section>
-		<footer>
-		    <a href="../index.php">Inicio</a>
-			<p>Práctica 7 en PHP. David Parro Rubio</p>
+    <footer>
+			<h2>Página desarrollada por los estudiantes de DAW:</h2>
+			<ul>
+				<li>David Parro</li>
+				<li>Ernesto del Valle</li>
+				<li>Jonatan Tomillo</li>
+				<li>Renzo Roca</li>
+				<li>Pablo Ruiz</li>
+			</ul>
 		</footer>
 	</body>
 </html>

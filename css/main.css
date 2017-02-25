@@ -111,10 +111,6 @@ iframe{
 #principal{
 	padding-top:3.5%;
 }
-form>label>img{
-	width: 128px;
-	height: 128px;
-}
 section>h2{
   margin-top: 0;
   font-family: 'heroe',sans-serif;
@@ -239,7 +235,7 @@ section>h2{
 /*----------------------------footer----------------------------*/
 footer{
   color: white;
-  background-color: black;
+  background-color: #1C1C1C;
 }
 footer>h2{
   text-align: center;
