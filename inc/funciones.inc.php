@@ -46,12 +46,13 @@ function validarCorreo($correo){
 function imprimirRegistro(){
 	echo '<div id="registro">';
 			echo '<form action="#" method="post" enctype="multipart/form-data">';
+					echo '<h1>Registro nuevo usuario</h1>';
 							echo '<p><label for="nick">Nick: </label><input name="nick" id="nick" type="text" required></p>';
 							echo '<p><label for="email">Email:</label><input name="email" id="email" type="text"></p>';
 							echo '<p><label for="pass">Contraseña: </label><input name="pass" id="pass" type="password"></p>';
 							echo '<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />';
 							echo '<p><label for="imagen">Imagen: </label><input name="imagen" id="imagen" type="file"></p>';
-							echo '<br /><input type="submit" name="registrar" value="registrar">';
+							echo '<br /><input class="iregistro" type="submit" name="registrar" value="Registrar">';
 			echo '</form>';
 	echo '</div> ';
 }

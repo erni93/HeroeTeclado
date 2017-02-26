@@ -4,15 +4,15 @@
 		<meta charset="utf-8">
 		<title>Keyboard Hero</title>
         <!--Normalize Css -->
-        <link rel="stylesheet" href="./css/normalize.css"   type="text/css" />
+        <link rel="stylesheet" href="../css/normalize.css"   type="text/css" />
         <!--Bootstrap Css-->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
         <!--Main Css-->
-        <link rel="stylesheet" href="./css/login.css"        type="text/css" />
+        <link rel="stylesheet" href="../css/login.css"        type="text/css" />
         <!--JQuery-->
-        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="../js/jquery-3.1.1.min.js"></script>
         <!--Bootstrap JQuery-->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
 		<?php
             require("../class/Conexion.php");
             require("../class/Usuario.php");
@@ -22,7 +22,7 @@
 	<body>
 
 		<header>
-			<h1>Registro nuevo usuario</h1>
+
 		</header>
         <section>
         <?php
@@ -89,8 +89,15 @@
 
 		?>
 		<footer>
-		    <a href="../inc/cuenta.php">Volver</a>
-			<p>Práctica 7 en PHP. David Parro Rubio</p>
+						<a href="../inc/cuenta.php">Volver</a>
+            <h2>Página desarrollada por los estudiantes de DAW:</h2>
+			<ul>
+                <li>David Parro</li>
+                <li>Ernesto del Valle</li>
+                <li>Jonatan Tomillo</li>
+                <li>Renzo Roca</li>
+                <li>Pablo Ruiz</li>
+            </ul>
 		</footer>
 	</body>
 </html>

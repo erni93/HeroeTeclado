@@ -74,11 +74,11 @@
                    <form action="#" method="post" onsubmit="return validar()">
                    		<h1>Acceso a mi cuenta</h1>
 
-                       <input type="text" placeholder="Usuario" class="login-input" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
-                      <input type="password" class="login-input" placeholder="Contraseña" name="pass" id="pass" /><br />
+                       <input type="text" placeholder='&#xF007; Usuario' class="login-input" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
+                      <input type="password" class="login-input" placeholder="&#xF13e; Contraseña" name="pass" id="pass" /><br />
 
-                       	<input type="submit" value="Acceder"  id="acceder" name="acceder" /><input type="submit" value="¡Regístrate si no lo estás!"  id="registr" name="registro" /><br/>
-                        <a href="recordar_pass.php">¿Recordar contraseña?</a>
+                       	<input type="submit" value="Acceder"  id="acceder" name="acceder" /><a href="./registro.php"><button type="button">¡Regístrate si no lo estás!</button></a><br/>
+                        <a class='recordarpass' href="recordar_pass.php">¿Recordar contraseña?</a>
                    </form>
                 <p><?php if(isset($_POST['acceder'])&&isset($mensaje)) echo $mensaje ?></p>
                 </div>
@@ -86,8 +86,9 @@
            </div>
 
 		</section>
-        <a href="../index.php">Inicio</a>
+
 		<footer>
+          <a href="../index.php">Inicio</a>
             <h2>Página desarrollada por los estudiantes de DAW:</h2>
 			<ul>
                 <li>David Parro</li>

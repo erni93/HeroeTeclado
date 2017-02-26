@@ -132,12 +132,24 @@ input[type="submit"]:focus{
 	border: 1px solid rgb(12, 76, 87);
 	box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
 }
-form>a{
+form>a.recordarpass{
 	display: block;
 	clear:both;
 	margin-top:10%;
 }
-input[type="submit"]+input[type="submit"]{
-  width: 15em;
-  float:right;
+input {font-family:'Sniglet',FontAwesome,cursive;}
+div#registro{width: 100%;}
+div#registro>form{
+  margin: 3em auto;
+}
+div#registro>form>input[type='submit'].iregistro{float:none;}
+div#registro>form>input{text-align: center;}
+footer>a{
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  color:rgb(61,157,179);
+}
+footer>a:hover{
+  color:#2B6B79;
 }
