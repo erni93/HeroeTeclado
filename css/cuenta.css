@@ -39,7 +39,7 @@
  }
  /* ---------------- Seccion header -------------------*/
 header{
-  background-color: #F5F6CE;
+  /*background-color: rgb(247,247,247);*/
   font-size: 200%;
   display: flex;
   flex-flow: row wrap;
@@ -47,10 +47,20 @@ header{
   justify-content: space-between;
   align-content: center;
   padding:0 1em;
+  background: rgb(247, 247, 247);
+	border: 1px solid rgba(147, 184, 189,0.8);
+	box-shadow:
+		0pt 2px 5px rgba(105, 108, 109,  0.8),
+		0px 0px 8px 5px rgba(208, 223, 226, 0.8) inset;
 }
 header>a{
   text-decoration: none;
   align-self: center;
+  display: block;
+  color:rgb(61,157,179);
+}
+header>a:hover{
+  color:#2B6B79;
 }
 /* ---------------- Seccion section -------------------*/
 section{
@@ -76,9 +86,10 @@ form>label>img{
   text-decoration: none;
   display: block;
   color: black;
-  background-color: #CEE3F6;
+  background-color: rgb(61,157,179);
   padding: 1em;
   font-size: 125%;
+  color:white;
 }
 #mis-datos,#historial,#finsesion,#administrar{
   border-right: 2px white solid;
@@ -90,4 +101,31 @@ form>label>img{
 .error{
   font-weight: bolder;
   color:red;
+}
+/*--------------Formulario datos----------*/
+form{
+  margin:1em 0;
+}
+input{
+  margin:1ex;
+}
+input[type='submit']{
+  background-color: rgb(61,157,179);
+  color:white;
+  font-family: 'Sniglet',cursive;
+  padding: 1ex;
+  font-size: 125%;
+  border-radius: 10px;
+  box-shadow:
+		5pt 5px 10px rgba(105, 108, 109,  0.8),
+		3px 3px 10px 5px rgba(208, 223, 226, 0.8) inset;
+    margin-top: 1em;
+}
+input[type='file'],input[type='text']{
+  font-family: 'Sniglet',cursive;
+}
+/* ------------------Seccion historial-------------------- */
+.history>table{
+  margin: 1ex auto;
+
 }

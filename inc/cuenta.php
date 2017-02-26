@@ -81,7 +81,7 @@
                    <label>Nick:</label><input type="text" name="nick" id="nick" value=<?php echo $_SESSION['nick'];?> readonly="readonly"/><br />
                    <label>Email:</label><input type="text" name="correo" id="correo" value=<?php echo $_SESSION['correo'];?> readonly="readonly"/><br />
                    <label>Contraseña:</label><input type="password" name="pass" id="pass" /><br />
-                   <?php echo '<label for="avatar"><img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar"></label>'?><input type="file" name="avatar" id="avatar" />
+                   <?php echo '<label for="avatar"><img src="verFoto.php?id='.$_SESSION['id'].'" alt="avatar"></label>'?><br /><input type="file" name="avatar" id="avatar" />
                    <br /><input type="submit" name="modificar" value="Modificar datos" id="">
                </form>
            </div>
