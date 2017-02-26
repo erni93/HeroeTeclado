@@ -136,6 +136,11 @@ form>a.recordarpass{
 	display: block;
 	clear:both;
 	margin-top:10%;
+  color:rgb(61,157,179);
+  text-decoration: none;
+}
+form>a.recordarpass:hover{
+  color:#2B6B79;
 }
 input {font-family:'Sniglet',FontAwesome,cursive;}
 div#registro{width: 100%;}
