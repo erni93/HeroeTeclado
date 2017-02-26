@@ -8,11 +8,11 @@
       <header>
       <nav>
         <ul class="container-fluid menu-admin">
-          <li class="adInicio col-md-2 col-md-offset-1"><a href="index.php">Inicio</a></li>
-          <li class="adCanciones col-md-2"><a href="canciones.php">Canciones</a></li>
-          <li class="adPuntuaciones col-md-2 "><a href="puntuaciones.php">Puntuaciones</a></li>
-          <li class="adUsuarios col-md-2 "><a href="usuarios.php">Usuarios</a></li>
-          <li class="miCuenta col-md-2 "><a href="../inc/cuenta.php">Mi Cuenta</a></li>
+          <li class="adInicio col-md-2 col-md-offset-1"><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+          <li class="adCanciones col-md-2"><a href="canciones.php"><i class="fa fa-music" aria-hidden="true"></i> Canciones</a></li>
+          <li class="adPuntuaciones col-md-2 "><a href="puntuaciones.php"><i class="fa fa-table" aria-hidden="true"></i> Puntuaciones</a></li>
+          <li class="adUsuarios col-md-2 "><a href="usuarios.php"><i class="fa fa-users" aria-hidden="true"></i> Usuarios</a></li>
+          <li class="miCuenta col-md-2 "><a href="../inc/cuenta.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Mi Cuenta</a></li>
         </ul>
       </nav>
     </header>';

@@ -15,6 +15,8 @@
 	<script src="../js/bootstrap.min.js"></script>
 	<!--Google Font-->
 	<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+	<!--Font Awesome-->
+	<script src="https://use.fontawesome.com/2c348761fe.js"></script>
 </head>
 <body>
 	<?php

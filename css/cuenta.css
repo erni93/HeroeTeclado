@@ -130,9 +130,11 @@ input[type='file'],input[type='text']{
   font-family: 'Sniglet',cursive;
 }
 /* ------------------Seccion historial-------------------- */
+.history{
+  padding-bottom: 3em;
+}
 .history>table{
-  margin: 1em auto;
-  margin-bottom: 2em;
+  margin: 0 auto;
  border-collapse: collapse;
  box-shadow: 4px 4px 10px black;
 }
