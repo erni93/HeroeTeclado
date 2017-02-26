@@ -52,9 +52,9 @@
              <?php
                 $newPuntuaciones=new Puntuacion();
                 $resultado=$newPuntuaciones->verPuntuacionesUsuario($_SESSION['id']);
-                echo "<p>Historial de puntuaciones:</p>";
+                echo "<h2>Historial de puntuaciones:</h2>";
                 echo "<table>";
-                  echo "<tr><td>id</td><td>Canción</td><td>Puntuación</td><td>Fecha</td></tr>";
+                  echo "<tr><th>id</th><th>Canción</th><th>Puntuación</th><th>Fecha</th></tr>";
                 foreach ($resultado as $fila => $valor) {
                   echo "<tr><td>".$valor['id']."</td><td>".$valor['titulo']."</td><td>".$valor['puntuacion']."</td><td>".$valor['fecha']."</td></tr>";
                 }

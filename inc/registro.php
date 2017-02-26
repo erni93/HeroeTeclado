@@ -8,7 +8,7 @@
         <!--Bootstrap Css-->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!--Main Css-->
-        <link rel="stylesheet" href="./css/main.css"        type="text/css" />
+        <link rel="stylesheet" href="./css/login.css"        type="text/css" />
         <!--JQuery-->
         <script src="js/jquery-3.1.1.min.js"></script>
         <!--Bootstrap JQuery-->
@@ -89,7 +89,7 @@
 
 		?>
 		<footer>
-		    <a href="../inc/cuenta.php">Inicio</a>
+		    <a href="../inc/cuenta.php">Volver</a>
 			<p>Práctica 7 en PHP. David Parro Rubio</p>
 		</footer>
 	</body>

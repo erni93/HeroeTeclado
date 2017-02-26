@@ -7,7 +7,7 @@
     if(isset($_SESSION['id'])){
         header("Location: cuenta.php");
     }
-    crearNombreIdSesion();   
+    crearNombreIdSesion();
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,9 +16,9 @@
 		<title>Inicio de Sesión</title>
         <link rel="stylesheet" type="text/css" href="../css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
-
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
         <script src="../js/jquery-3.1.1.min.js"></script>
+        <script src="https://use.fontawesome.com/2c348761fe.js"></script>
         <script>
             function validar(){
                 valido=true;
@@ -26,11 +26,11 @@
                 $("#pass+p").remove();
                 valor = $("#user").val();
                 valor2 = $("#pass").val();
-                if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {    
+                if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
                     $("#user").after("<p>El campo de usuario no puede estar vacio</p>");
                     valido=false;
                 }
-                if( valor2 == null || valor2.length == 0 || /^\s+$/.test(valor2) ) {          
+                if( valor2 == null || valor2.length == 0 || /^\s+$/.test(valor2) ) {
                     $("#pass").after("<p>El campo de contraseña no puede estar vacio</p>");
                     valido=false;
                 }
@@ -50,7 +50,7 @@
                     if($pass==$fila['password']){
                         $user = new Usuario;
                         if($user->login_usuario($fila['correo'],$fila['password'])){
-                            header("Location: cuenta.php");     
+                            header("Location: cuenta.php");
                         }else{
                             $mensaje="Ha ocurrido un error al iniciar sesion, por favor intentelo mas tarde en unos segundos";
                         }
@@ -60,33 +60,35 @@
                 }else{
                     $mensaje="No existe el usuario";
                 }
+            }else if(isset($_POST['registro'])){
+              header("Location: registro.php");
             }
 		?>
 	</head>
 	<body>
-				
-			
+
+
 		<section>
            <div id="acceso">
                 <div id="datos">
                    <form action="#" method="post" onsubmit="return validar()">
                    		<h1>Acceso a mi cuenta</h1>
-	
-                       <input type="text" placeholder="Usuario" class="login-input" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
-                      <input type="password" class="login-input" placeholder="Contraseña" name="pass" id="pass"><br />
 
-                       	<input type="submit" value="Acceder"  id="acceder" name="acceder"><button href="registro.php">¡Regístrate si no lo estas!</button><br/>
+                       <input type="text" placeholder="Usuario" class="login-input" name="user" id="user" value=<?php echo (isset($_POST['user']))?$_POST['user']:""; ?>><br />
+                      <input type="password" class="login-input" placeholder="Contraseña" name="pass" id="pass" /><br />
+
+                       	<input type="submit" value="Acceder"  id="acceder" name="acceder" /><input type="submit" value="¡Regístrate si no lo estás!"  id="registr" name="registro" /><br/>
                         <a href="recordar_pass.php">¿Recordar contraseña?</a>
                    </form>
                 <p><?php if(isset($_POST['acceder'])&&isset($mensaje)) echo $mensaje ?></p>
                 </div>
-              
+
            </div>
-            
+
 		</section>
         <a href="../index.php">Inicio</a>
 		<footer>
-            <h2>Página desarrollada por los estudiantes de DAW:</h2> 
+            <h2>Página desarrollada por los estudiantes de DAW:</h2>
 			<ul>
                 <li>David Parro</li>
                 <li>Ernesto del Valle</li>
