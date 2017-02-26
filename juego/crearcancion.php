@@ -1,5 +1,7 @@
 <?php 
 	function crearNotas($segundos){
+		//Margen de error, 30seg ...
+		$segundos+= 30;
 		//1024 notas = 104 segundos
 		$numNotas = intval(($segundos*1024)/104);
 		$notaDisponible = ["0001","0010","0100","1000"];
