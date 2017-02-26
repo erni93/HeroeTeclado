@@ -92,7 +92,7 @@
         <table id="lCanciones">
           <thead>
             <tr>
-              <th>Id</th>
+              <th class="oculto">Id</th>
               <th>Canción</th>
               <th>Grupo</th>
               <th>Duración</th>

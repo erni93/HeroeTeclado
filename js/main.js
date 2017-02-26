@@ -43,7 +43,7 @@ $(function() {
             for (x in myObj) {
                 $("#lCanciones tbody").append(
                     "<tr>" +
-                    "<td>" + myObj[x].id + "</td>" +
+                    "<td class='oculto'>" + myObj[x].id + "</td>" +
                     "<td>" + myObj[x].titulo + "</td>" +
                     "<td>" + myObj[x].grupo + "</td>" +
                     "<td>" + myObj[x].duracion + "</td>" +
@@ -71,7 +71,7 @@ $(function() {
     }
     function listaNovedades(){
         $.post("./inc/obtenerNovedades.php",function(data){
-            $("#novedades").append(data); 
+            $("#novedades").append(data);
         });
     }
 });

@@ -106,7 +106,7 @@
 				          			$(".error").html("HA OCURRIDO UN ERROR");
 				            		return false;
 				            	}
-								location.reload();
+								      location.reload();
 				              },
 				              error: function (xhr, ajaxOptions,thrownError) {
 				                  alert(thrownError);}
@@ -138,7 +138,7 @@
 			    var caratula=$("#caratula").val().split('.').pop().toLowerCase();
 			    var duracion=$("#duracion").val();
 			    //var regD=/d{1,2}:d{2}/;
-			    var regD=/^\d+:[0-5][0-9]$/;
+			    var regD=/^\d+:\d+:[0-5][0-9]$/;
 			    alert(regD.test(duracion));
 				if(extC.indexOf(caratula)==-1){
 					comprobacion=false;
