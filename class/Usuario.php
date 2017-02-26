@@ -91,6 +91,16 @@ class Usuario {
       return $usuarios;
     }
 
+    public function verUsuariosC($correo){
+      $sql = "SELECT u.id,u.nick,u.correo,r.rango FROM usuarios u JOIN rangos r ON u.rango=r.id WHERE correo='".$correo."'";//like '%".$correo."%'";
+      $consulta=$this->db->query($sql);
+      $usuarios=array();
+      while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+        array_push($usuarios,$fila);
+      }
+      return $usuarios;
+    }
+
     public function removeUser($id){
       $sql="DELETE FROM usuarios WHERE id=".$id;
       if($this->db->query($sql)){
