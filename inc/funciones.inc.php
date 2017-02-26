@@ -48,8 +48,8 @@ function imprimirRegistro(){
 			echo '<form action="#" method="post" enctype="multipart/form-data">';
 					echo '<h1>Registro nuevo usuario</h1>';
 							echo '<p><label for="nick">Nick: </label><input name="nick" id="nick" type="text" required></p>';
-							echo '<p><label for="email">Email:</label><input name="email" id="email" type="text"></p>';
-							echo '<p><label for="pass">Contraseña: </label><input name="pass" id="pass" type="password"></p>';
+							echo '<p><label for="email">Email:</label><input placeholder="Formato x@x.x" name="email" id="email" type="text"></p>';
+							echo '<p><label for="pass">Contraseña: </label><input placeholder="Entre 4 y 8 caracteres, mínimo 1 may, 1 mín y 1 número" name="pass" id="pass" type="password"></p>';
 							echo '<input type="hidden" name="MAX_FILE_SIZE" value="2097152" />';
 							echo '<p><label for="imagen">Imagen: </label><input name="imagen" id="imagen" type="file"></p>';
 							echo '<br /><input class="iregistro" type="submit" name="registrar" value="Registrar">';

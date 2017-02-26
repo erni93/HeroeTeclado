@@ -13,6 +13,8 @@
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<!--Bootstrap JQuery-->
 	<script src="../js/bootstrap.min.js"></script>
+	<!--Google Font-->
+	<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 </head>
 <body>
 	<?php

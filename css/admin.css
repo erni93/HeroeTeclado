@@ -29,11 +29,12 @@ body{
  	list-style: none;
  	top:0;
  	width:100%;
- 	background-color: black;
+ 	background-color: rgb(61,157,179);
   color:white;
  }
  .menu-admin>li{
  	text-align: center;
+  /*background-color: rgb(61,157,179);*/
  	/*background-color:white;*/
  }
  .menu-admin>li>a{
@@ -46,6 +47,7 @@ body{
 h1,h2{
   text-align: center;
   font-family: 'heroe';
+  text-shadow: 0pt 4px 5px rgb(105, 108, 109);
 }
 h1{
   margin:5% 0 ;
@@ -55,8 +57,15 @@ h2{
   font-size:4em;
 }
 section{
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   min-height: 200px;
+  background: rgb(247, 247, 247);
+	border: 1px solid rgba(147, 184, 189,0.8);
+	box-shadow:
+		0pt 2px 5px rgba(105, 108, 109,  0.8),
+		0px 0px 8px 5px rgba(208, 223, 226, 0.8) inset;
+  font-family: 'Sniglet',cursive;
+  font-size: 100%;
 }
 section>p{
   padding-left: 6%;
@@ -91,9 +100,14 @@ th{
 label{
   width: 50%;
 }
-
- .adInicio:hover{background-color: white;color:black;}
- .adCanciones:hover{background-color: white;color:black;}
- .adPuntuaciones:hover{background-color: white;color:black;}
- .adUsuarios:hover{background-color: white;color:black;}
- .miCuenta:hover{background-color: white;color:black;}
+.adInicio,.adCanciones,.adPuntuaciones,.adUsuarios,.miCuenta{
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+}
+.adInicio{border-left: 2px solid white;}
+.miCuenta{border-right: 2px solid white;}
+ .adInicio:hover{background-color: white;color:rgb(61,157,179);}
+ .adCanciones:hover{background-color: white;color:rgb(61,157,179);}
+ .adPuntuaciones:hover{background-color: white;color:rgb(61,157,179);}
+ .adUsuarios:hover{background-color: white;color:rgb(61,157,179);}
+ .miCuenta:hover{background-color: white;color:rgb(61,157,179);}

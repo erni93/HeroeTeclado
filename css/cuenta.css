@@ -70,6 +70,8 @@ section{
 form>label>img{
 	width: 128px;
 	height: 128px;
+  box-shadow: 0px 2px 5px #000;
+  margin: 1ex;
 }
 .datosusuario>ul{
   display: flex;

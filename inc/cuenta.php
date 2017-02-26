@@ -30,12 +30,17 @@
             }
             if(isset($_POST['modificar'])){
                 if(!empty($_POST['pass'])){
-                  $newUser=new Usuario();
-                  if($newUser->modificarPass($_SESSION['id'],md5($_POST['pass']))){
-                    $mensaje="<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
+                  if(validarPass($_POST['pass'])){
+                    $newUser=new Usuario();
+                    if($newUser->modificarPass($_SESSION['id'],md5($_POST['pass']))){
+                      $mensaje="<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
+                    }else{
+                        $mensaje="<p class='error'>No se ha podido cambiar la contraseña</p>";
+                    }
                   }else{
-                      $mensaje="<p class='error'>No se ha podido cambiar la contraseña</p>";
+                    $mensaje="<p class='error'>Error en el formato de contraseña. Entre 4 y 8 caracteres y mínimo 1 mayúsucla, 1 minúscula y 1 número.</p>";
                   }
+
                 }
                   if($_FILES['avatar']['error']==0){
                           $dir_subida = '../img/';
