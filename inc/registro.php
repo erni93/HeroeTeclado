@@ -13,6 +13,8 @@
         <script src="../js/jquery-3.1.1.min.js"></script>
         <!--Bootstrap JQuery-->
         <script src="../js/bootstrap.min.js"></script>
+				<!--Font Awesome-->
+				<script src="https://use.fontawesome.com/2c348761fe.js"></script>
 		<?php
             require("../class/Conexion.php");
             require("../class/Usuario.php");
@@ -89,7 +91,7 @@
 
 		?>
 		<footer>
-						<a href="../inc/cuenta.php">Volver</a>
+						<a href="../inc/cuenta.php"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</a>
             <h2>Página desarrollada por los estudiantes de DAW:</h2>
 			<ul>
                 <li>David Parro</li>

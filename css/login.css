@@ -158,3 +158,13 @@ footer>a{
 footer>a:hover{
   color:#2B6B79;
 }
+.error{
+  font-weight: bolder;
+  color:red;
+}
+.noerror{
+  color:green;
+}
+body>section>p:nth-of-type(1){
+  padding-top: 2em;
+}

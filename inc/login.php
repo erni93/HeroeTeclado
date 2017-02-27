@@ -88,7 +88,7 @@
 		</section>
 
 		<footer>
-          <a href="../index.php">Inicio</a>
+          <a href="../index.php"><i class="fa fa-home" aria-hidden="true"></i> Inicio</a>
             <h2>Página desarrollada por los estudiantes de DAW:</h2>
 			<ul>
                 <li>David Parro</li>

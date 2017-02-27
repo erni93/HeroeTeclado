@@ -15,6 +15,7 @@
     <script src="https://use.fontawesome.com/2c348761fe.js"></script>
 		<?php
             $mensaje="";
+            $mensajeC="";
             $emailBBDD="";
             $nickBBDD="";
             if(isset($_SESSION['id'])){
@@ -33,12 +34,12 @@
                   if(validarPass($_POST['pass'])){
                     $newUser=new Usuario();
                     if($newUser->modificarPass($_SESSION['id'],md5($_POST['pass']))){
-                      $mensaje="<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
+                      $mensajeC="<p class='noerror'>La contraseña ha sido cambiada correctamente</p>";
                     }else{
-                        $mensaje="<p class='error'>No se ha podido cambiar la contraseña</p>";
+                        $mensajeC="<p class='error'>No se ha podido cambiar la contraseña</p>";
                     }
                   }else{
-                    $mensaje="<p class='error'>Error en el formato de contraseña. Entre 4 y 8 caracteres y mínimo 1 mayúsucla, 1 minúscula y 1 número.</p>";
+                    $mensajeC="<p class='error'>Error en el formato de contraseña. Entre 4 y 8 caracteres y mínimo 1 mayúsucla, 1 minúscula y 1 número.</p>";
                   }
 
                 }
@@ -93,7 +94,7 @@
                </form>
            </div>
            <?php
-              echo $mensaje;
+              echo $mensaje."<br />".$mensajeC;
             ?>
 		</section>
     <footer>
