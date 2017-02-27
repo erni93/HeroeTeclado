@@ -54,6 +54,22 @@ class Puntuacion {
       }
     }
 
+     public function verTopPuntuaciones(){
+       $instancia = Conexion::dameInstancia();
+       $db=$instancia->conexion();
+       $sql="SELECT p.id,c.titulo,u.nick,max(p.puntuacion) as puntuacion FROM puntuaciones p,canciones c ,usuarios u
+       WHERE  p.id_cancion=c.id AND p.id_usuario=u.id
+       GROUP BY p.id_cancion
+       ORDER BY p.puntuacion DESC";
+       $consulta= $db->query($sql);
+       $cols=$consulta->numColumns();
+       $puntuaciones=array();
+       while($fila = $consulta->fetchArray(SQLITE3_ASSOC)){
+         array_push($puntuaciones,$fila);
+       }
+       $db->close();
+       return $puntuaciones;
+     }
 
     public static function verCampos(){
       $instancia = Conexion::dameInstancia();

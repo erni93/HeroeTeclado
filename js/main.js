@@ -3,6 +3,7 @@ $(function() {
     rellenarCaratula();
     listaCanciones();
     listaNovedades();
+    rellenarSecPuntuaciones();
     function rellenarPuntuacion() {
         var filasTabla = "";
         $.post("./inc/rellenaTablaPuntuacion.php", function(datos_devueltos) {
@@ -73,5 +74,20 @@ $(function() {
         $.post("./inc/obtenerNovedades.php",function(data){
             $("#novedades").append(data);
         });
+    }
+    function rellenarSecPuntuaciones(){
+      $.post("./inc/puntuacionesL.php", function(datos_devueltos) {
+          myObj = JSON.parse(datos_devueltos);
+          for (x in myObj) {
+              $("#lPuntuaciones tbody").append(
+                  "<tr>" +
+                  "<td class='oculto'>" + myObj[x].id + "</td>" +
+                  "<td>" + myObj[x].titulo + "</td>" +
+                  "<td>" + myObj[x].nick + "</td>" +
+                  "<td>" + myObj[x].puntuacion + "</td>" +
+                  "</tr>"
+              );
+          }
+      });
     }
 });

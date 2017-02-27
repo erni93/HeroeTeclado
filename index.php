@@ -86,6 +86,19 @@
 			</section>
 			<section id="puntuaciones">
         <h2>Puntuaciones</h2>
+        <table id="lPuntuaciones">
+          <thead>
+            <tr>
+              <th class="oculto">Id</th>
+              <th>Canción</th>
+              <th>Usuario</th>
+              <th>Puntuacion</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
 			</section>
 			<section id="canciones">
         <h2>Lista de canciones</h2>
