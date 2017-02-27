@@ -23,7 +23,8 @@
 	<!--Main Css-->
 	<link rel="stylesheet" href="../css/admin.css" 		type="text/css" />
 	<link rel="stylesheet" href="../css/jquery-ui.min.css" 		type="text/css" />
-
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="../img/guitarra.png" />
 	<!--fontawesome-->
 	<script src="https://use.fontawesome.com/0f800d37bb.js"></script>
 	<!--JQuery-->

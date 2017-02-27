@@ -25,9 +25,11 @@
 		<!--Bootstrap JQuery-->
 		<script src="js/bootstrap.min.js"></script>
 		<!--Google Font-->
-    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<!--anclas -->
 		<script src="js/anclas.js"></script>
+		<!--Favicon-->
+		<link rel="icon" type="image/png" href="./img/guitarra.png" />
     <script type="text/javascript" src="js/main.js"></script>
 	</head>
 	<body>
