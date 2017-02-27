@@ -24,8 +24,8 @@
 		<script src="js/jquery-3.1.1.min.js"></script>
 		<!--Bootstrap JQuery-->
 		<script src="js/bootstrap.min.js"></script>
-		<!--Menu
-		<script src="js/menu.js"></script>-->
+		<!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 		<!--anclas -->
 		<script src="js/anclas.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -86,6 +86,7 @@
 			</section>
 			<section id="puntuaciones">
         <h2>Puntuaciones</h2>
+        <h3>Puntuaciones máximas de cada canción</h3>
         <table id="lPuntuaciones">
           <thead>
             <tr>

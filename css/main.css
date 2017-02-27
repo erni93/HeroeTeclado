@@ -221,6 +221,7 @@ div#puntuacionesP{
 #lPuntuaciones{
   margin:0 auto;
   text-align: center;
+  font-family: 'Sniglet',cursive;
 }
 #lPuntuaciones>thead{
   border-bottom: 2px solid white;
@@ -228,6 +229,10 @@ div#puntuacionesP{
 #lPuntuaciones>thead>tr>th{
   text-align: center;
   padding: 0 1em;
+}
+h3{
+  font-family: "Sniglet",cursive;
+  text-align: center;
 }
 /* -----------------CUARTO BLOQUE CANCIONES-----------------  */
 #canciones{
