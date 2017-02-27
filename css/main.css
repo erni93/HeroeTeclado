@@ -119,12 +119,10 @@ section>h2{
   padding-top: 2%;
 }
 .oculto{
-  position: relative;
-  top:-9999px;
+  display: none;
 }
 .oculto2{
-  position: relative;
-  left:-9999px;
+  display: none;
 }
 /* ----------------- PRIMER BLOQUE -----------------  */
 #principal{
@@ -186,6 +184,7 @@ div#puntuacionesP{
 	background-size: 100% 100%;
 	background-color: #358462;
   color:white;
+  height: 800px;
 }
 .novedad{
 	text-align: center;
@@ -223,10 +222,7 @@ div#puntuacionesP{
 	/*height: 800px;*/
 }
 #lPuntuaciones{
-  width: 80%;
-  margin:0 auto;
-  text-align: center;
-  font-family: 'Sniglet',cursive;
+  background: linear-gradient(to right, rgba(244,140,124,1) 0%, rgba(247,63,38,1) 0%, rgba(249,103,78,1) 0%, rgba(242,71,49,1) 0%, rgba(167,1,1,1) 100%);
 }
 #lPuntuaciones>tbody>tr>td{
   border-bottom: 1px solid white;
@@ -249,12 +245,6 @@ h3{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color:white;
-}
-#lCanciones{
-
-  margin: 0 auto;
-  width: 80%;
-  text-align: center;
 }
 #lCanciones th{
   border-bottom: 3px solid #ddd;
@@ -286,4 +276,18 @@ footer>ul{
 }
 footer>ul>li{
   display: inline-block;
+}
+
+/*---------------------------- TABLAS GENERALES----------------------------*/
+#lPuntuaciones,#lCanciones{
+  width: 80%;
+  margin:0 auto;
+  text-align: center;
+  font-family: 'Sniglet',cursive;
+}
+
+#lPuntuaciones>thead>tr,#lCanciones>thead>tr{
+  color: #fff;
+  background-color: #373a3c;
+  height: 4em;
 }
