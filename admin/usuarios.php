@@ -84,7 +84,7 @@
 							id=$(this).attr("title");
 							envio="u=d&id="+id;
 							$.post("./funciones.inc.php",envio,function(datos_devueltos){
-								alert(datos_devueltos);
+								//alert(datos_devueltos);
 								location.reload();
 							});
 

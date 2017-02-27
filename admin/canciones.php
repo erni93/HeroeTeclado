@@ -45,7 +45,6 @@
 					$.post("./funciones.inc.php",envio,function(datos_devueltos){
 						//console.log(datos_devueltos);
 						myObj = JSON.parse(datos_devueltos);
-						$
       			for (x in myObj) {
 							$("#canciones tbody").append(
 								"<tr>"+
@@ -67,7 +66,7 @@
 							id=$(this).attr("title");
 							envio="o=d&id="+id;
 							$.post("./funciones.inc.php",envio,function(datos_devueltos){
-								alert(datos_devueltos);
+								//alert(datos_devueltos);
 								location.reload();
 							});
 
@@ -139,7 +138,7 @@
 			    var duracion=$("#duracion").val();
 			    //var regD=/d{1,2}:d{2}/;
 			    var regD=/^\d+:\d+:[0-5][0-9]$/;
-			    alert(regD.test(duracion));
+			    //alert(regD.test(duracion));
 				if(extC.indexOf(caratula)==-1){
 					comprobacion=false;
 					mensaje.push("La extension de la caratula no es valida");

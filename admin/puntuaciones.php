@@ -80,7 +80,7 @@
       cabeceraAdmin();
   		$listaC=Puntuacion::verCampos();
   		//print_r($listaC);
-  		echo "<h1>CANCIONES</h1>";
+  		echo "<h1>PUNTUACIONES</h1>";
   		echo "<div id='cBusqueda'>";
   			echo "<label for='buscar'>Buscar: </label>";
   			echo "<input type='text' name='buscar' id='buscar'/>";
