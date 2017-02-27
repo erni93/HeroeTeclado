@@ -122,6 +122,10 @@ section>h2{
   position: relative;
   top:-9999px;
 }
+.oculto2{
+  position: relative;
+  left:-9999px;
+}
 /* ----------------- PRIMER BLOQUE -----------------  */
 #principal{
 	background-image: url("../img/fondo1.jpg");

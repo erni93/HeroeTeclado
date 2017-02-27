@@ -90,7 +90,7 @@
         <table id="lPuntuaciones">
           <thead>
             <tr>
-              <th class="oculto">Id</th>
+              <th class="oculto2">Id</th>
               <th>Canción</th>
               <th>Usuario</th>
               <th>Puntuacion</th>
@@ -100,6 +100,9 @@
 
           </tbody>
         </table>
+        <div id="dataTable">
+
+        </div>
 			</section>
 			<section id="canciones">
         <h2>Lista de canciones</h2>

@@ -4,6 +4,7 @@ $(function() {
     listaCanciones();
     listaNovedades();
     rellenarSecPuntuaciones();
+
     function rellenarPuntuacion() {
         var filasTabla = "";
         $.post("./inc/rellenaTablaPuntuacion.php", function(datos_devueltos) {
