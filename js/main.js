@@ -76,18 +76,14 @@ $(function() {
         });
     }
     function rellenarSecPuntuaciones(){
+      var filasTabla = "";
       $.post("./inc/puntuacionesL.php", function(datos_devueltos) {
           myObj = JSON.parse(datos_devueltos);
           for (x in myObj) {
-              $("#lPuntuaciones tbody").append(
-                  "<tr>" +
-                  "<td class='oculto'>" + myObj[x].id + "</td>" +
-                  "<td>" + myObj[x].titulo + "</td>" +
-                  "<td>" + myObj[x].nick + "</td>" +
-                  "<td>" + myObj[x].puntuacion + "</td>" +
-                  "</tr>"
-              );
+              filasTabla +=  "<tr>" +  "<td class='oculto'>" + myObj[x].id + "</td>" +  "<td>" + myObj[x].titulo + "</td>" +  "<td>" + myObj[x].nick + "</td>" +  "<td>" + myObj[x].puntuacion + "</td>" +  "</tr>"
           }
+          $("#lPuntuaciones tbody").html(filasTabla);
       });
+      setTimeout(rellenarSecPuntuaciones, 2000);
     }
 });
