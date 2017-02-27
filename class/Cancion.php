@@ -69,8 +69,11 @@ class Cancion{
 
 		public function removeCancion($id){
 			$sql="DELETE FROM canciones WHERE id=".$id;
+			$sql2="DELETE FROM puntuaciones WHERE id_cancion=".$id;
 			if($this->db->query($sql)){
-				return 1;
+				if($this->db->query($sql2)){
+					return 1;
+				}
 			}else{
 				return 0;
 			}
