@@ -19,6 +19,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
         <script src="../js/jquery-3.1.1.min.js"></script>
         <script src="https://use.fontawesome.com/2c348761fe.js"></script>
+        <!--Favicon-->
+		    <link rel="icon" type="image/png" href="../img/guitarra.png" />
         <script>
             function validar(){
                 valido=true;

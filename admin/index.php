@@ -17,6 +17,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Sniglet" rel="stylesheet">
 	<!--Font Awesome-->
 	<script src="https://use.fontawesome.com/2c348761fe.js"></script>
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="../img/guitarra.png" />
 </head>
 <body>
 	<?php
