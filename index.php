@@ -54,7 +54,7 @@
 		</header>
 		<div id="contenedor">
 			<section id="principal">
-				<div id="cancionesP" class="col-md-3" >
+				<div id="cancionesP" class="col-md-2" >
 					<h1>MÚSICA</h1>
   			       	<div id="musica-seleccionada">
   			       		<h2>Ninguna canción</h2>
@@ -64,7 +64,7 @@
 	  			       	<p>Duración: <b>0:00 min</b></p>
   			       	</div>
 				</div>
-				<div id="juegoP" class="col-md-6">
+				<div id="juegoP" class="col-md-7">
 					<iframe src="./juego/index.html" height="660px" width="632px"></iframe>
 				</div>
 
